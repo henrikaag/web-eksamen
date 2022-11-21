@@ -18,7 +18,7 @@ const GameList = () => {
     const getGameList = () => {
         return games.map((game, i) => (
             <GameItem
-                key={`Id: ${i}`}
+                key={`game-${i}`}
                 id={game.id}
                 title={game.title}
                 platform={game.platform}
