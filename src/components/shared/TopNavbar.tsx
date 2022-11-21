@@ -12,6 +12,7 @@ import Equipment from "../Equipment/Equipment";
 import { GiCharacter, GiAxeSword } from 'react-icons/gi';
 import { CgGames } from 'react-icons/cg';
 import { BiWorld } from 'react-icons/bi';
+import { AiOutlineHome } from 'react-icons/ai';
 
 
 
@@ -26,7 +27,7 @@ const TopNavbar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/">Home <AiOutlineHome /></Nav.Link>
                     <Nav.Link href="/games">Games <CgGames /></Nav.Link>
                     <Nav.Link href="/characters">Characters <GiCharacter /></Nav.Link>
                     <Nav.Link href="/worlds">Worlds <BiWorld /></Nav.Link>
