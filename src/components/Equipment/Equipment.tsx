@@ -1,6 +1,9 @@
+import EquipmentList from "./EquipmentList";
+
+
 const Equipment = () => {
     return (
-        <h1>Equipment</h1>
+        <EquipmentList />
     )
 }
 

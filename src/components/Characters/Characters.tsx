@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { FaPlaystation, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
 import { MdComputer } from 'react-icons/md';
+import CharacterList from './CharacterList';
 
 const Characters = () => {
     return (
@@ -37,6 +38,7 @@ const Characters = () => {
 
             ))}
         </Row>
+        <CharacterList/>
     </section>
       </>
     )

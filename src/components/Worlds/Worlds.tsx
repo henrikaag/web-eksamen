@@ -1,6 +1,8 @@
+import WorldList from "./worldList"
+
 const Worlds = () => {
     return (
-        <h1>Worlds</h1>
+        <WorldList/>
     )
 }
 
