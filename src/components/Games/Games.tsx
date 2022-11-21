@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import GameList from './GameList';
 
 import { FaPlaystation, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
@@ -37,6 +38,7 @@ const Games = () => {
 
                 ))}
               </Row>
+<GameList/>
             </section>
               </>
     )
