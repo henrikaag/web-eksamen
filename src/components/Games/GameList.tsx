@@ -4,6 +4,8 @@ import IGameContext from "../../interfaces/IGameContext";
 import GameService from "../../services/GameService";
 import GameItem from "./GameItem";
 
+import Row from 'react-bootstrap/Row';
+
 const GameList = () => {
     const [games, setGames] = useState<IGame[]>([]);
 
@@ -31,8 +33,9 @@ const GameList = () => {
     }
     return (
         <section>
-            <h2>Game</h2>
-            <section>{getGameList()}</section>
+            <Row xs={1} sm={2} md={3} className="g-2 mt-2">
+                {getGameList()}
+            </Row>
         </section>
     )
 }
