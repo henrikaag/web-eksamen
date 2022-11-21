@@ -27,7 +27,7 @@ const TopNavbar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/games">Games <GrGamepad /></Nav.Link>
+                    <Nav.Link href="/games">Games <CgGames /></Nav.Link>
                     <Nav.Link href="/characters">Characters <GiCharacter /></Nav.Link>
                     <Nav.Link href="/worlds">Worlds <BiWorld /></Nav.Link>
                     <Nav.Link href="/equipment">Equipment <GiAxeSword /></Nav.Link>
