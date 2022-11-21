@@ -3,7 +3,7 @@ import ICartoon from "../interfaces/IGame";
 
 const GameService = (
     () => {
-        const ElectricGamesEndpoints = "https://localhost:7053/game";
+        const ElectricGamesEndpoints = "https://localhost:7050/game";
 
         const getAllGames = async () => {
             const result = await axios.get(ElectricGamesEndpoints);
