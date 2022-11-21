@@ -10,7 +10,7 @@ import Worlds from "../Worlds/Worlds";
 import Equipment from "../Equipment/Equipment";
 
 import { GiCharacter, GiAxeSword } from 'react-icons/gi';
-import { GrGamepad } from 'react-icons/gr';
+import { CgGames } from 'react-icons/cg';
 import { BiWorld } from 'react-icons/bi';
 
 
@@ -20,9 +20,11 @@ const TopNavbar = () => {
     return (
         <>
         <BrowserRouter>
-            <Navbar bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                 <Navbar.Brand href="/">ElectricGames</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/games">Games <GrGamepad /></Nav.Link>
@@ -30,6 +32,7 @@ const TopNavbar = () => {
                     <Nav.Link href="/worlds">Worlds <BiWorld /></Nav.Link>
                     <Nav.Link href="/equipment">Equipment <GiAxeSword /></Nav.Link>
                 </Nav>
+                </Navbar.Collapse>
                 </Container>
             </Navbar>
 
