@@ -1,5 +1,4 @@
 import axios from "axios";
-import ICartoon from "../interfaces/IGame";
 
 const GameService = (
     () => {
