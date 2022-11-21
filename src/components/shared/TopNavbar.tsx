@@ -7,6 +7,12 @@ import HomePage from "../../pages/HomePage";
 import Games from "../Games/Games";
 import Characters from "../Characters/Characters";
 import Worlds from "../Worlds/Worlds";
+import Equipment from "../Equipment/Equipment";
+
+import { GiCharacter, GiAxeSword } from 'react-icons/gi';
+import { GrGamepad } from 'react-icons/gr';
+import { BiWorld } from 'react-icons/bi';
+
 
 
 const TopNavbar = () => {
@@ -18,10 +24,11 @@ const TopNavbar = () => {
                 <Container>
                 <Navbar.Brand href="/">ElectricGames</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Hjem</Nav.Link>
-                    <Nav.Link href="/games">Games</Nav.Link>
-                    <Nav.Link href="/characters">Characters</Nav.Link>
-                    <Nav.Link href="/worlds">Worlds</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/games">Games <GrGamepad /></Nav.Link>
+                    <Nav.Link href="/characters">Characters <GiCharacter /></Nav.Link>
+                    <Nav.Link href="/worlds">Worlds <BiWorld /></Nav.Link>
+                    <Nav.Link href="/equipment">Equipment <GiAxeSword /></Nav.Link>
                 </Nav>
                 </Container>
             </Navbar>
@@ -32,6 +39,7 @@ const TopNavbar = () => {
                 <Route path="/games" element={<Games />}></Route>
                 <Route path="/characters" element={<Characters />}></Route>
                 <Route path="/worlds" element={<Worlds />}></Route>
+                <Route path="/equipment" element={<Equipment />}></Route>
             </Routes>
         </main>
         </BrowserRouter>
