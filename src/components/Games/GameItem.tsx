@@ -34,7 +34,6 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
                             <p>Platform: {platform}</p>
                             <p>Release Year: {releaseYear}</p>
                             <p>{price}$</p>
-                            Description
                         </Card.Text>
 
                         {/*DELETE BUTTON*/}
