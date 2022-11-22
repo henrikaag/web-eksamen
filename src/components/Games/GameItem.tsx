@@ -10,6 +10,8 @@ import Modal from 'react-bootstrap/Modal';
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
 
+import '../../css/GameItem.css';
+
 const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => {
 
     const [show, setShow] = useState(false);
@@ -27,7 +29,7 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
         <article>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={`https://localhost:7050/images/game-images/${image}`} />
+                        <Card.Img variant="top" src={`https://localhost:7050/images/game-images/${image}`} style={{ width: "100%", height: "300px" }} className="card-image"/>
                         <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
@@ -40,6 +42,7 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
                         <Button className="me-2" variant="danger" onClick={handleShow}>
                             Delete <FiTrash2 />
                         </Button>
+
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
                             <Modal.Title>Delete Confirmation</Modal.Title>
