@@ -1,7 +1,6 @@
 import IGame from "../../interfaces/IGame";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => {
     return (
