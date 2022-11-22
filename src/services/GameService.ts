@@ -1,5 +1,8 @@
 import axios from "axios";
+import ICharacter from "../interfaces/ICharacter";
+import IEquipment from "../interfaces/IEquipment";
 import IGame from "../interfaces/IGame";
+import IWorld from "../interfaces/IWorld";
 
 
 const GameService = (
@@ -11,6 +14,7 @@ const GameService = (
             equipment: "https://localhost:7050/equipment",
         }
 
+        // GET ALL - Funksjoner
         const getAllGames = async () => {
             const result = await axios.get(ElectricGamesEndpoints.game);
             return result.data;
@@ -28,12 +32,44 @@ const GameService = (
             return result.data;
 
         }
+
+        // GET BY ID - Funksjoner 
         const getGameById = async (id: number) => {
-            const result = await axios.get(`${ElectricGamesEndpoints}/${id}`);
+            const result = await axios.get(`${ElectricGamesEndpoints.game}/${id}`);
             return result.data;
         }
+        
+        const getCharacterById = async (id: number) => {
+            const result = await axios.get(`${ElectricGamesEndpoints.character}/${id}`);
+            return result.data;
+        }
+        
+        const getEquipmentById = async (id: number) => {
+            const result = await axios.get(`${ElectricGamesEndpoints.equipment}/${id}`);
+            return result.data;
+        }
+
+        const getWorldById = async (id: number) => {
+            const result = await axios.get(`${ElectricGamesEndpoints.worlds}/${id}`);
+            return result.data
+        }
+        // PUT - Funksjoner
         const putGame = async (editedGame: IGame) => {
             const result = await axios.put(ElectricGamesEndpoints.game, editedGame);
+            return result.data;
+        }
+        const putCharacter = async (editedCharacter: ICharacter) => {
+            const result = await axios.put(ElectricGamesEndpoints.character, editedCharacter);
+            return result.data
+        }
+
+        const putEquipment = async (editedEquipment: IEquipment) => {
+            const result = await axios.put(ElectricGamesEndpoints.equipment, editedEquipment);
+            return result.data;
+        }
+
+        const putWorld = async (editedWorld: IWorld) => {
+            const result = await axios.put(ElectricGamesEndpoints.worlds, editedWorld);
             return result.data;
         }
 
@@ -43,7 +79,13 @@ const GameService = (
             getAllEquipment,
             getAllWorlds,
             getGameById,
-            putGame
+            getCharacterById,
+            getEquipmentById,
+            getWorldById,
+            putGame,
+            putCharacter,
+            putEquipment,
+            putWorld
         }
     }
 )();
