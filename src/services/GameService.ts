@@ -1,4 +1,5 @@
 import axios from "axios";
+import IGame from "../interfaces/IGame";
 
 
 const GameService = (
@@ -27,12 +28,22 @@ const GameService = (
             return result.data;
 
         }
+        const getGameById = async (id: number) => {
+            const result = await axios.get(`${ElectricGamesEndpoints}/${id}`);
+            return result.data;
+        }
+        const putGame = async (editedGame: IGame) => {
+            const result = await axios.put(ElectricGamesEndpoints.game, editedGame);
+            return result.data;
+        }
 
         return {
             getAllGames,
             getAllCharacters,
             getAllEquipment,
-            getAllWorlds
+            getAllWorlds,
+            getGameById,
+            putGame
         }
     }
 )();

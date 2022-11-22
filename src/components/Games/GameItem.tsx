@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import EditGame from './EditGame';
 
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
@@ -70,6 +71,7 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
                         <Modal show={show2} onHide={handleClose2}>
                             <Modal.Header closeButton>
                             <Modal.Title>Edit {title}</Modal.Title>
+                            <EditGame/>
                             </Modal.Header>
                             <Modal.Body>
 
