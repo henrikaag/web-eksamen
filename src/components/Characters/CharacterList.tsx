@@ -17,7 +17,7 @@ const CharacterList = () => {
     const getCharacterList = () => {
         return characters.map((character, i) => (
             <CharacterItem
-                key={`Id: ${i}`}
+                key={`character-${i}`}
                 id={character.id}
                 name={character.name}
                 game={character.game}
