@@ -8,7 +8,7 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
         <article>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={`https://localhost:7050/game-images/${image}`} />
+                        <Card.Img variant="top" src={`https://localhost:7050/images/game-images/${image}`} />
                         <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
