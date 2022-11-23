@@ -33,17 +33,17 @@ const GameService = (
 
         }
 
-        // GET BY ID - Funksjoner 
+        // GET BY ID - Funksjoner
         const getGameById = async (id: number) => {
             const result = await axios.get(`${ElectricGamesEndpoints.game}/${id}`);
             return result.data;
         }
-        
+
         const getCharacterById = async (id: number) => {
             const result = await axios.get(`${ElectricGamesEndpoints.character}/${id}`);
             return result.data;
         }
-        
+
         const getEquipmentById = async (id: number) => {
             const result = await axios.get(`${ElectricGamesEndpoints.equipment}/${id}`);
             return result.data;

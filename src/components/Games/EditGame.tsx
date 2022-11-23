@@ -1,5 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import GameService from "../../services/GameService";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Accordion from 'react-bootstrap/Accordion';
+
+import { FiTrash2 } from 'react-icons/fi';
+import { BsPencilSquare } from 'react-icons/bs';
+
+import '../../css/EditGame.css';
 
 const EditGame = () => {
     const [id, setId] = useState<string>("Id not set")
@@ -53,35 +61,49 @@ const EditGame = () => {
         GameService.putGame(editedGame);
     }
     return (
+        <>
         <section>
-                        <h2>Rediger Tegnefilm</h2>
-            <div>
-                <label>Id</label>
-                <input name="id" onChange={changeHandler} type="text" value={id}/>
-                <button onClick={getGameFromService}>Hent Tegnefilm</button>
-            </div>
-            <div>
-                <label>Tittel</label>
-                <input name="title" onChange={changeHandler} type="text" value={title}/>
-            </div>
-            <div>
-                <label>Platform</label>
-                <input name="platform" onChange={changeHandler} type="text" value={platform}/>
-            </div>
-            <div>
-                <label>Release Year</label>
-                <input name="releaseYear" onChange={changeHandler} type="text" value={releaseYear}/>
-            </div>
-            <div>
-                <label>Price</label>
-                <input name="price" onChange={changeHandler} type="text" value={price}/>
-            </div>
-            <div>
-                <label>Image</label>
-                <input name="image" onChange={changeHandler} type="text" value={image}/>
-            </div>
-            <button onClick={editGame}>Lagre endringer</button>
+                <Form>
+                    <Form.Group className="mb-2"controlId="formGridPassword">
+                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
+                        <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                        <Button variant="warning" onClick={getGameFromService} className="mt-2">
+                            Get game
+                    </Button>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2" controlId="formGridEmail">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control name="title" onChange={changeHandler} type="text" value={title} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-2"controlId="formGridPassword">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control name="price" onChange={changeHandler} type="text" value={price}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2" controlId="formGridAddress1">
+                        <Form.Label>Release Year</Form.Label>
+                        <Form.Control name="releaseYear" onChange={changeHandler} type="text" value={releaseYear}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2" controlId="formGridAddress1">
+                        <Form.Label>Platform</Form.Label>
+                        <Form.Control name="platform" onChange={changeHandler} type="text" value={platform}/>
+                    </Form.Group>
+
+                    <Form.Group controlId="formFile" className="mb-3">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+
+                    <Button variant="success" onClick={editGame}>
+                        Finish editing
+                    </Button>
+                    </Form>
+
         </section>
+        </>
     )
 }
 
