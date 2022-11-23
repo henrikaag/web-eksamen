@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import IGame from "../../interfaces/IGame";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge';
 
 
 
@@ -17,10 +17,10 @@ const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => 
                         <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
+                        <Badge pill bg="primary">ID: {id}</Badge>
                             <p>Platform: {platform}</p>
                             <p>Release Year: {releaseYear}</p>
                             <p>{price}$</p>
-                            <p>ID: {id}</p>
                         </Card.Text>
                         </Card.Body>
                     </Card>

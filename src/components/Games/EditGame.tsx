@@ -63,39 +63,33 @@ const EditGame = () => {
     return (
         <>
         <section>
-        <Accordion defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-                <Accordion.Header>Edit Game <BsPencilSquare /></Accordion.Header>
-                <Accordion.Body className="edit-game-accordion">
                 <Form>
                     <Form.Group className="mb-2"controlId="formGridPassword">
                         <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
-                        <Form.Control type="number" placeholder="id" />
+                        <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                        <Button variant="warning" onClick={getGameFromService} className="mt-2">
+                            Get game
+                    </Button>
                     </Form.Group>
 
-                    <Form.Group className="mb-2"controlId="formGridEmail">
+                    <Form.Group className="mb-2" controlId="formGridEmail">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="email" placeholder="Title" />
+                        <Form.Control name="title" onChange={changeHandler} type="text" value={title} />
                     </Form.Group>
 
                     <Form.Group className="mb-2"controlId="formGridPassword">
                         <Form.Label>Price</Form.Label>
-                        <Form.Control type="number" placeholder="Price" />
+                        <Form.Control name="price" onChange={changeHandler} type="text" value={price}/>
                     </Form.Group>
 
                     <Form.Group className="mb-2" controlId="formGridAddress1">
                         <Form.Label>Release Year</Form.Label>
-                        <Form.Control placeholder="Release Year" />
+                        <Form.Control name="releaseYear" onChange={changeHandler} type="text" value={releaseYear}/>
                     </Form.Group>
 
-                    <Form.Group className="mb-2" controlId="formGridState">
+                    <Form.Group className="mb-2" controlId="formGridAddress1">
                         <Form.Label>Platform</Form.Label>
-                        <Form.Select placeholder="Choose...">
-                            <option>PC</option>
-                            <option>Playstation</option>
-                            <option>Xbox</option>
-                            <option>Nintendo Switch</option>
-                        </Form.Select>
+                        <Form.Control name="platform" onChange={changeHandler} type="text" value={platform}/>
                     </Form.Group>
 
                     <Form.Group controlId="formFile" className="mb-3">
@@ -103,56 +97,11 @@ const EditGame = () => {
                         <Form.Control type="file" />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" onClick={editGame}>
                         Finish editing
                     </Button>
                     </Form>
-                </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-                <Accordion.Header>Delete Game <FiTrash2 /></Accordion.Header>
-                <Accordion.Body className="delete-game-accordion">
 
-                    <Form.Group className="mb-2"controlId="formGridPassword">
-                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
-                        <Form.Control type="number" placeholder="id" />
-                    </Form.Group>
-
-                    <Button variant="danger" type="submit">
-                            Delete game
-                    </Button>
-                </Accordion.Body>
-            </Accordion.Item>
-            </Accordion>
-
-
-            <h2>Rediger Tegnefilm</h2>
-            <div>
-                <label>Id</label>
-                <input name="id" onChange={changeHandler} type="text" value={id}/>
-                <button onClick={getGameFromService}>Hent Tegnefilm</button>
-            </div>
-            <div>
-                <label>Tittel</label>
-                <input name="title" onChange={changeHandler} type="text" value={title}/>
-            </div>
-            <div>
-                <label>Platform</label>
-                <input name="platform" onChange={changeHandler} type="text" value={platform}/>
-            </div>
-            <div>
-                <label>Release Year</label>
-                <input name="releaseYear" onChange={changeHandler} type="text" value={releaseYear}/>
-            </div>
-            <div>
-                <label>Price</label>
-                <input name="price" onChange={changeHandler} type="text" value={price}/>
-            </div>
-            <div>
-                <label>Image</label>
-                <input name="image" onChange={changeHandler} type="text" value={image}/>
-            </div>
-            <button onClick={editGame}>Lagre endringer</button>
         </section>
         </>
     )
