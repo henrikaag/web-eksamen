@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import IGame from "../../interfaces/IGame";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -13,7 +13,7 @@ import { BsPencilSquare } from 'react-icons/bs';
 
 import '../../css/GameItem.css';
 
-const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => {
+const GameItem : FC<IGame >= ({id, title, platform, releaseYear, price, image } : IGame) => {
 
     const [show, setShow] = useState(false);
 

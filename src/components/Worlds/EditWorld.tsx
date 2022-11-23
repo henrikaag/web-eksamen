@@ -46,7 +46,7 @@ const EditWorld = () => {
 
     return (
         <section>
-            <h2>Rediger world</h2>
+            <h2>Edit world</h2>
             <div>
                 <label>Id</label>
                 <input name="id" onChange={changeHandler} type="text" value={id}/>

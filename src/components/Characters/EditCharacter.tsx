@@ -57,7 +57,7 @@ const EditCharacter = () => {
 
     return (
         <section>
-            <h2>Rediger Character</h2>
+            <h2>Edit Character</h2>
             <div>
                 <label>Id</label>
                 <input name="id" onChange={changeHandler} type="text" value={id}/>
