@@ -73,6 +73,13 @@ const GameService = (
             return result.data;
         }
 
+        // POST - Funksjoner
+
+        const postGame = async (newGame: IGame) => {
+            const result = await axios.post(ElectricGamesEndpoints.game, newGame);
+            return result.data;
+        }
+
         return {
             getAllGames,
             getAllCharacters,
@@ -85,7 +92,8 @@ const GameService = (
             putGame,
             putCharacter,
             putEquipment,
-            putWorld
+            putWorld,
+            postGame,
         }
     }
 )();

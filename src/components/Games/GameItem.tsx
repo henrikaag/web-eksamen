@@ -8,7 +8,7 @@ import Badge from 'react-bootstrap/Badge';
 
 import '../../css/GameItem.css';
 
-const GameItem : FC<IGame >= ({id, title, platform, releaseYear, price, image } : IGame) => {
+const GameItem : FC<IGame>= ({id, title, platform, releaseYear, price, image }) => {
 
     return (
         <article>
