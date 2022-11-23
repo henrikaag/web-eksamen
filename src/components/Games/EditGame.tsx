@@ -5,12 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const EditGame = () => {
-    const [id, setId] = useState<string>("Id not set")
-    const [title, setTitle] = useState<string>("Title not set")
-    const [platform, setPlatform] = useState<string>("Platform not set")
-    const [releaseYear, setReleaseYear] = useState<string>("Release year not set")
-    const [price, setPrice] = useState<string>("Price not set")
-    const [image, setImage] = useState<string>("image not set")
+    const [id, setId] = useState<string>("")
+    const [title, setTitle] = useState<string>("")
+    const [platform, setPlatform] = useState<string>("")
+    const [releaseYear, setReleaseYear] = useState<string>("")
+    const [price, setPrice] = useState<string>("")
+    const [image, setImage] = useState<string>("")
 
     const getGameFromService = async () => {
         const game = await GameService.getGameById(parseInt(id))
