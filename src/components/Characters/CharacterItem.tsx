@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 
+import '../../css/Item.css';
+
 const CharacterItem = ({id, name, game, type, equipment, image } : ICharacter) => {
     return (
         <article>
@@ -12,10 +14,10 @@ const CharacterItem = ({id, name, game, type, equipment, image } : ICharacter) =
                         <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
-                        <Badge pill bg="primary">ID: {id}</Badge>
                             <p>Game: {game}</p>
                             <p>Type: {type}</p>
                             <p>Equipment: {equipment}</p>
+                            <Badge pill bg="primary">ID: {id}</Badge>
                         </Card.Text>
                         </Card.Body>
                     </Card>

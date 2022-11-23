@@ -1,4 +1,4 @@
-import WorldList from "./worldList"
+import WorldList from "./WorldList";
 
 const Worlds = () => {
     return (

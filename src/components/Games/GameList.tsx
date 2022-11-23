@@ -33,7 +33,7 @@ const GameList = () => {
     }
     return (
         <section>
-            <Row xs={1} sm={2} md={3} className="g-2 mt-2">
+            <Row xs={1} sm={2} md={4} lg={4} className="g-2 mt-2">
                 {getGameList()}
             </Row>
         </section>
