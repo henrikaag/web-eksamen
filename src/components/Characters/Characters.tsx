@@ -1,46 +1,88 @@
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+import CharacterList from './CharacterList';
 
 import { FaPlaystation, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
 import { MdComputer } from 'react-icons/md';
-import CharacterList from './CharacterList';
+import { FiTrash2 } from 'react-icons/fi';
+import { BsPencilSquare } from 'react-icons/bs';
+
+
 
 const Characters = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [show2, setShow2] = useState(false);
+
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
     return (
         <>
-        <section className="container">
-            <h1>Characters</h1>
+        <section className="container mt-4">
+            <h1>Welcome to ElectricGames!</h1>
 
-            <h3>Filter by platform</h3>
             <Button variant="warning m-1">PC <MdComputer /></Button>
             <Button variant="primary m-1">Playstation <FaPlaystation /></Button>
             <Button variant="success m-1">Xbox <FaXbox /></Button>
-            <Button variant="danger m-1">Nintendo <SiNintendoswitch /></Button>
+            <Button variant="danger m-1">Nintendo Switch<SiNintendoswitch /></Button>
+            <p className="m-1">Filter games by platform</p>
+            <br></br>
 
-            <Row xs={1} md={2} className="g-4 mt-2">
-            {Array.from({ length: 4 }).map((_, idx) => (
-                <Col>
-                    <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit
-                        longer.
-                        </Card.Text>
-                    </Card.Body>
-                    </Card>
-                </Col>
+            {/*EDIT BUTTON*/}
+                <Button variant="warning" onClick={handleShow} className="me-2">
+                    Edit Games <BsPencilSquare />
+                </Button>
 
-            ))}
-        </Row>
-        <CharacterList/>
-    </section>
-      </>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Edit Game</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+
+            {/*DELETE BUTTON*/}
+                <Button variant="danger" onClick={handleShow2}>
+                    Delete Games <FiTrash2 />
+                </Button>
+
+                <Modal show={show2} onHide={handleClose2}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Delete Game</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose2}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+
+            <CharacterList />
+
+            <br></br>
+            </section>
+        </>
     )
 }
 

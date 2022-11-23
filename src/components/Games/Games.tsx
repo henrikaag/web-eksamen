@@ -81,7 +81,7 @@ const Games = () => {
             <GameList />
             <br></br>
             </section>
-              </>
+        </>
     )
 }
 
