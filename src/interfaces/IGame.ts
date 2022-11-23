@@ -4,7 +4,7 @@ interface IGame{
     platform: string;
     releaseYear: number;
     price: number;
-    image?: File | null;
+    image?: String;
 
 }
 
