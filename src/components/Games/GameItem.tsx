@@ -14,7 +14,7 @@ const GameItem : FC<IGame >= ({id, title, platform, releaseYear, price, image } 
         <article>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={`https://localhost:7050/images/game-images/${image}`} style={{ width: "100%", height: "300px" }} className="card-image"/>
+                        <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="card-image"/>
                         <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
