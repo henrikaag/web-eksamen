@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 
-
-
 import '../../css/GameItem.css';
 
 const GameItem : FC<IGame >= ({id, title, platform, releaseYear, price, image } : IGame) => {
