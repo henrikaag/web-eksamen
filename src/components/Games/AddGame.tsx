@@ -5,7 +5,7 @@ import GameService from '../../services/GameService';
 
 const AddGame = () => {
 
-    const [id, setId] = useState<number>(0)
+    // const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
     const [releaseYear, setReleaseYear] = useState<number>(0)
@@ -16,9 +16,6 @@ const AddGame = () => {
         const {name, value} = e.currentTarget
 
         switch( name ){
-            case "id":
-                setId ( parseInt(value));
-            break;
             case "title":
                 setTitle( value );
             break;
@@ -39,9 +36,8 @@ const AddGame = () => {
 
     const addGame = () => {
 
-        useEffect(()=>{
         const newGame = {
-            id: id,
+            // id: id,
             title: title,
             platform: platform,
             releaseYear: releaseYear,
@@ -50,8 +46,10 @@ const AddGame = () => {
         };
         GameService.postGame(newGame);
         console.log(newGame);
-    },[])
+        
+
     }
+
 
     return (
 
@@ -79,7 +77,7 @@ const AddGame = () => {
 
             <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control type="text" />
             </Form.Group>
 
             <Button variant="success" onClick={addGame}>

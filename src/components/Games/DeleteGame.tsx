@@ -5,11 +5,14 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/Col';
+import { GameContext } from "../../contexts/GameContext";
+import IGameContext from "../../interfaces/IGameContext";
 
 
 
 const DeleteGame = () => {
-    const [id, setId] = useState<string>("")
+    const [id, setId] = useState<number>(0)
+    const { deleteGameById } = useContext(GameContext) as IGameContext;
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
     const [releaseYear, setReleaseYear] = useState<string>("")
@@ -17,19 +20,20 @@ const DeleteGame = () => {
     const [image, setImage] = useState<string>("")
 
     const getGameFromService = async () => {
-        const game = await GameService.getGameById(parseInt(id))
+        const game = await GameService.getGameById( id );
         setTitle(game.title);
         setPlatform(game.platform);
         setReleaseYear(game.releaseYear);
         setPrice(game.price);
         setImage(game.image);
     }
+
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.currentTarget
 
         switch( name ){
             case "id":
-                setId ( value );
+                setId ( parseInt(e.currentTarget.value) );
             break;
             case "title":
                 setTitle( value );
@@ -48,16 +52,15 @@ const DeleteGame = () => {
             break;
         }
     }
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setId (parseInt(e.currentTarget.value))
+    }
+
     const deleteGame = () => {
-        const editedGame = {
-            id: parseInt(id),
-            title: title,
-            platform: platform,
-            releaseYear: parseInt(releaseYear),
-            price: parseInt(price),
-            image: image
-        };
-        GameService.putGame(editedGame);
+        deleteGameById( id );
+        
+    }
 
     return (
         <>
@@ -74,7 +77,7 @@ const DeleteGame = () => {
                         Get game
                 </Button>
 
-                <Button variant="danger mb-2">
+                <Button variant="danger mb-2"  onClick={deleteGame}>
                         Delete game
                 </Button>
             </Form>
@@ -96,7 +99,6 @@ const DeleteGame = () => {
             </section>
         </>
     )
-    }
 }
 
 export default DeleteGame;
