@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import GameService from "../../services/GameService";
 import IWorld from "../../interfaces/IWorld";
-import WorldItem from "./WorldItem";
+import WorldItem from "./worldItem";
 
 const WorldList = () => {
     const [world, setWorld] = useState<IWorld[]>([]);

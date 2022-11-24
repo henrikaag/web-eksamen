@@ -11,7 +11,7 @@ interface Props{
 
 const GameProvider = ({children} : Props) => {
 
-    const [game, setGame] = useState<IGame[]>([]);
+    const [games, setGame] = useState<IGame[]>([]);
 
     useEffect(()=>{
         getGamesFromService();
@@ -24,17 +24,19 @@ const GameProvider = ({children} : Props) => {
 
     const deleteGameById = async(id: number) => {
         await GameService.deleteGame(id);
-        const newArray = game.filter ( game => game.id != id )
+        const newArray = games.filter ( game => game.id != id )
         setGame(newArray);
     }
 
 
+    /*
     const addGame = (newGame: IGame) => {
         setGame( [newGame, ...game]);
     }
+    */
 
     return(
-        <GameContext.Provider value={{game, addGame }}>
+        <GameContext.Provider value={{games, deleteGameById }}>
             {children}
         </GameContext.Provider>
     )
