@@ -34,7 +34,7 @@ const Games = () => {
             <Button variant="primary m-1">Playstation <FaPlaystation /></Button>
             <Button variant="success m-1">Xbox <FaXbox /></Button>
             <Button variant="danger m-1">Nintendo Switch<SiNintendoswitch /></Button>
-            <p className="m-1">Filter games by platform</p>
+            <p className="m-1">Here you can see different games. Use the buttons above to filter them by platform, or use the search field to find a specific game</p>
             <br></br>
 
             {/*EDIT BUTTON*/}

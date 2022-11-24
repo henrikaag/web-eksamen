@@ -3,6 +3,8 @@ import GameService from "../../services/GameService";
 import IWorld from "../../interfaces/IWorld";
 import WorldItem from "./WorldItem";
 
+import Row from 'react-bootstrap/Row';
+
 const WorldList = () => {
     const [world, setWorld] = useState<IWorld[]>([]);
 
@@ -28,8 +30,9 @@ const WorldList = () => {
     }
     return (
         <section>
-            <h1>Worlds</h1>
-            {getWorldList()}
+            <Row xs={1} sm={2} md={3} lg={4} className="g-2 mt-2">
+                {getWorldList()}
+            </Row>
         </section>
     )
 }

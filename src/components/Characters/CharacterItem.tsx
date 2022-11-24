@@ -9,7 +9,7 @@ const CharacterItem = ({id, name, game, type, equipment, image } : ICharacter) =
     return (
         <article>
                 <Col>
-                    <Card>
+                    <Card className="shadow-sm">
                         <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="card-image"/>
                         <Card.Body>
                         <Card.Title>{name}</Card.Title>

@@ -1,6 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import GameService from "../../services/GameService";
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const EditWorld = () => {
 
     const [id, setId] = useState<string>("");
@@ -22,12 +25,12 @@ const EditWorld = () => {
             case "id":
                 setId( value );
             break;
-            case "name": 
+            case "name":
                 setName( value );
             break;
             case "game":
                 setGame( value );
-            break; 
+            break;
             case "image":
                 setImage( value );
             break;
@@ -45,27 +48,38 @@ const EditWorld = () => {
     }
 
     return (
+        <>
         <section>
-            <h2>Edit world</h2>
-            <div>
-                <label>Id</label>
-                <input name="id" onChange={changeHandler} type="text" value={id}/>
-                <button onClick={getWorldFromService}>Hent world</button>
-            </div>
-            <div>
-                <label>Name</label>
-                <input name="name" onChange={changeHandler} type="text" value={name}/>
-            </div>
-            <div>
-                <label>Game</label>
-                <input name="game" onChange={changeHandler} type="text" value={game}/>
-            </div>
-            <div>
-                <label>Image</label>
-                <input name="image" onChange={changeHandler} type="text" value={image}/>
-            </div>
-            <button onClick={editWorld}>Lagre endringer</button>
+                <Form>
+                    <Form.Group className="mb-2">
+                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
+                        <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                        <Button variant="warning" onClick={getWorldFromService} className="mt-2">
+                            Get World
+                    </Button>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control name="title" onChange={changeHandler} type="text" value={name} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control name="price" onChange={changeHandler} type="text" value={game}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+
+                    <Button variant="success" onClick={editWorld}>
+                        Finish editing
+                    </Button>
+                    </Form>
         </section>
+        </>
     )
 }
 

@@ -2,10 +2,9 @@ import { ChangeEvent, useState } from "react";
 import GameService from "../../services/GameService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Accordion from 'react-bootstrap/Accordion';
-
-import { FiTrash2 } from 'react-icons/fi';
-import { BsPencilSquare } from 'react-icons/bs';
+import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -62,6 +61,7 @@ const DeleteGame = () => {
     }
     return (
         <>
+        <section>
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
                     <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
@@ -70,14 +70,30 @@ const DeleteGame = () => {
 
                 <h3 onChange={changeHandler}>{title}</h3>
 
-                <Button variant="warning" onClick={getGameFromService} className="me-2">
+                <Button variant="warning" onClick={getGameFromService} className="me-2 mb-2">
                         Get game
                 </Button>
 
-                <Button variant="danger">
+                <Button variant="danger mb-2">
                         Delete game
                 </Button>
             </Form>
+            <i>A preview of the world you want to delete will show up below when you have entered an id and clicked "Get World"</i>
+            <Col>
+                    <Card className="shadow-sm">
+                        <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="game-card-image"/>
+                        <Card.Body>
+                        <Card.Title>{title}</Card.Title>
+                        <Card.Text>
+                            <p>Platform: {platform}</p>
+                            <p>Release Year: {releaseYear}</p>
+                            <p>{price}$</p>
+                            <Badge pill bg="primary">ID: {id}</Badge>
+                        </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </section>
         </>
     )
 }

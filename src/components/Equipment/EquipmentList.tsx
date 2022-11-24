@@ -3,6 +3,8 @@ import GameService from "../../services/GameService";
 import IEquipment from "../../interfaces/IEquipment";
 import EquipmentItem from "./EquipmentItem";
 
+import Row from 'react-bootstrap/Row';
+
 
 const EquipmentList = () => {
     const [equipment, setEquipment] = useState<IEquipment[]>([]);
@@ -18,7 +20,7 @@ const EquipmentList = () => {
 
     const getEquipmentList = () => {
         return equipment.map((equipment, i) => (
-            <EquipmentItem 
+            <EquipmentItem
                 key={`Id: ${i}`}
                 id={ equipment.id}
                 nameOfEquipment = {equipment.nameOfEquipment}
@@ -30,10 +32,11 @@ const EquipmentList = () => {
     }
     return (
         <section>
-            <h1>Equipment</h1>
-            {getEquipmentList()}
+            <Row xs={1} sm={2} md={3} lg={4} className="g-2 mt-2">
+                {getEquipmentList()}
+            </Row>
         </section>
     )
-}    
+}
 
 export default EquipmentList;
