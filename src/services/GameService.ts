@@ -75,8 +75,8 @@ const GameService = (
 
         // POST - Funksjoner
 
-        const postGame = async (newGame: IGame) => {
-            const result = await axios.post(ElectricGamesEndpoints.game, newGame);
+        const postGame = async (game: IGame) => {
+            const result = await axios.post(ElectricGamesEndpoints.game, game);
             return result.data;
         }
 

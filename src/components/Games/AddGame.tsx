@@ -1,15 +1,15 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import GameService from '../../services/GameService';
 
 const AddGame = () => {
 
-    const [id, setId] = useState<string>("")
+    const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
-    const [releaseYear, setReleaseYear] = useState<string>("")
-    const [price, setPrice] = useState<string>("")
+    const [releaseYear, setReleaseYear] = useState<number>(0)
+    const [price, setPrice] = useState<number>(0)
     const [image, setImage] = useState<string>("")
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +17,7 @@ const AddGame = () => {
 
         switch( name ){
             case "id":
-                setId ( value );
+                setId ( parseInt(value));
             break;
             case "title":
                 setTitle( value );
@@ -26,10 +26,10 @@ const AddGame = () => {
                 setPlatform( value );
             break;
             case "releaseYear":
-                setReleaseYear( value );
+                setReleaseYear( parseInt(value));
             break;
             case "price":
-                setPrice( value );
+                setPrice(parseInt(value));
             break;
             case "image":
                 setImage( value );
@@ -38,16 +38,19 @@ const AddGame = () => {
     }
 
     const addGame = () => {
+
+        useEffect(()=>{
         const newGame = {
-            id: parseInt(id),
+            id: id,
             title: title,
             platform: platform,
-            releaseYear: parseInt(releaseYear),
-            price: parseInt(price),
+            releaseYear: releaseYear,
+            price: price,
             image: image
         };
         GameService.postGame(newGame);
         console.log(newGame);
+    },[])
     }
 
     return (
