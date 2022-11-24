@@ -46,8 +46,6 @@ const AddGame = () => {
         };
         GameService.postGame(newGame);
         console.log(newGame);
-        
-
     }
 
 
