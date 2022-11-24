@@ -58,7 +58,7 @@ const DeleteGame = () => {
             image: image
         };
         GameService.putGame(editedGame);
-
+    }
     return (
         <>
         <section>
@@ -96,7 +96,7 @@ const DeleteGame = () => {
             </section>
         </>
     )
-    }
+
 }
 
 export default DeleteGame;
