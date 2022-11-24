@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { GameContext } from '../../contexts/GameContext';
@@ -6,14 +6,16 @@ import IGameContext from '../../interfaces/IGameContext';
 import GameService from '../../services/GameService';
 
 const AddGame = () => {
-    const { addNewGame } = useContext(GameContext) as IGameContext
-
+    
     // const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
     const [releaseYear, setReleaseYear] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
-
+    const [nameOfImage, setNameOfImage] = useState<string>("")
+    const [image, setImage] = useState<File | null>(null)
+    
+    const { addNewGame } = useContext(GameContext) as IGameContext
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.currentTarget;
@@ -34,6 +36,22 @@ const AddGame = () => {
         }
     }
 
+    const imageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const {files} =e.target;
+
+        if(files !=null) {
+            const file= files[0]
+            setImage(file)
+            setNameOfImage(file.name)
+        }
+    }
+
+    const uploadImage = () => {
+        if( image != null){
+            GameService.uploadImage(image);
+        }
+    }
+
     const addAGame = () => {
 
         const newGame = {
@@ -41,7 +59,8 @@ const AddGame = () => {
             title: title,
             platform: platform,
             releaseYear: releaseYear,
-            price: price
+            price: price,
+            image: nameOfImage
         };
         addNewGame(newGame)
         console.log(newGame);
@@ -53,28 +72,29 @@ const AddGame = () => {
         <Form>
             <Form.Group className="mb-3" controlId="formGroupEmail">
                 <Form.Label>Title</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" placeholder="Enter email" />
+                <Form.Control onChange={changeHandler} type="text" name="title" value={title}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Platform</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" placeholder="Password" />
+                <Form.Control onChange={changeHandler} type="text" name="platform" value={platform} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Release Year</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" placeholder="Password" />
+                <Form.Control onChange={changeHandler} type="number" name="releaseYear" value={releaseYear} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Price</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" placeholder="Password" />
+                <Form.Control onChange={changeHandler} type="number" name="price" value={price} />
             </Form.Group>
 
 
             <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>Image</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="file" name='image' onChange={imageHandler} />
+                        <button type='button' onClick={uploadImage}>Upload Image</button>
             </Form.Group>
 
             <Button variant="success" onClick={addAGame}>

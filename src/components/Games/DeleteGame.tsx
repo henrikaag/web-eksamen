@@ -12,13 +12,14 @@ import IGameContext from "../../interfaces/IGameContext";
 
 const DeleteGame = () => {
     const [id, setId] = useState<number>(0)
-    const { deleteGameById } = useContext(GameContext) as IGameContext;
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
-    const [releaseYear, setReleaseYear] = useState<string>("")
-    const [price, setPrice] = useState<string>("")
+    const [releaseYear, setReleaseYear] = useState<number>(0)
+    const [price, setPrice] = useState<number>(0)
     const [image, setImage] = useState<string>("")
-
+    
+    const { deleteGameById } = useContext(GameContext) as IGameContext;
+    
     const getGameFromService = async () => {
         const game = await GameService.getGameById( id );
         setTitle(game.title);
@@ -42,10 +43,10 @@ const DeleteGame = () => {
                 setPlatform( value );
             break;
             case "releaseYear":
-                setReleaseYear( value );
+                setReleaseYear( parseInt(value) );
             break;
             case "price":
-                setPrice( value );
+                setPrice( parseInt(value) );
             break;
             case "image":
                 setImage( value );
@@ -68,7 +69,7 @@ const DeleteGame = () => {
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
                     <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
-                    <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                    <Form.Control name="id" onChange={handleChange} type="number" value={id} />
                 </Form.Group>
 
                 <h3 onChange={changeHandler}>{title}</h3>

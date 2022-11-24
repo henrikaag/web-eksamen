@@ -1,5 +1,4 @@
 import axios from "axios";
-import { STATUS_CODES } from "http";
 import ICharacter from "../interfaces/ICharacter";
 import IEquipment from "../interfaces/IEquipment";
 import IGame from "../interfaces/IGame";
@@ -13,6 +12,7 @@ const GameService = (
             character: "https://localhost:7050/character",
             worlds: "https://localhost:7050/world",
             equipment: "https://localhost:7050/equipment",
+            imageUpload: "http://localhost:7050/UploadImage"
         }
 
         // GET ALL - Funksjoner
@@ -98,6 +98,26 @@ const GameService = (
             }
         }
 
+        const uploadImage = async (image: File) => {
+            try{
+            const formData = new FormData();
+            formData.append("file", image);
+
+            const result = await axios({
+                url: ElectricGamesEndpoints.imageUpload,
+                method: "POST",
+                data: formData,
+                headers: { "Content-Type": "multipart/form-data" }
+            });
+
+            formData.delete("file");            
+        }
+        catch
+        {
+            return 500;
+        }
+        }
+
         const deleteGame = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.game}/${id}`)
             console.log(result);
@@ -119,7 +139,8 @@ const GameService = (
             putWorld,
             postGame,
             deleteGame,
-            getGameByTitle
+            getGameByTitle,
+            uploadImage
         }
     }
 )();

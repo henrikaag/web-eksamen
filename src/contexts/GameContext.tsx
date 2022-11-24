@@ -22,7 +22,7 @@ const GameProvider = ({children} : Props) => {
         setGame (gamesFromService);
     }
 
-    const deleteGameById = async(id: number) => {
+    const deleteGameById = async (id: number) => {
         await GameService.deleteGame(id);
         const newArray = games.filter ( game => game.id != id )
         setGame(newArray);
