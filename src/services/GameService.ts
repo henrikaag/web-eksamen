@@ -80,6 +80,12 @@ const GameService = (
             return result.data;
         }
 
+        const deleteGame = async (id: number) => {
+            const result = await axios.delete(`${ElectricGamesEndpoints.game}/${id}`)
+            console.log(result);
+            return result;
+        }
+
         return {
             getAllGames,
             getAllCharacters,
@@ -94,6 +100,7 @@ const GameService = (
             putEquipment,
             putWorld,
             postGame,
+            deleteGame
         }
     }
 )();

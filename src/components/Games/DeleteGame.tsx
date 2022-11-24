@@ -1,20 +1,17 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
-import Col from 'react-bootstrap/Col';
 
 
 
 const DeleteGame = () => {
-    const [id, setId] = useState<string>("Id not set")
-    const [title, setTitle] = useState<string>("Title not set")
-    const [platform, setPlatform] = useState<string>("Platform not set")
-    const [releaseYear, setReleaseYear] = useState<string>("Release year not set")
-    const [price, setPrice] = useState<string>("Price not set")
-    const [image, setImage] = useState<string>("image not set")
+    const [id, setId] = useState<string>("")
+    const [title, setTitle] = useState<string>("")
+    const [platform, setPlatform] = useState<string>("")
+    const [releaseYear, setReleaseYear] = useState<string>("")
+    const [price, setPrice] = useState<string>("")
+    const [image, setImage] = useState<string>("")
 
     const getGameFromService = async () => {
         const game = await GameService.getGameById(parseInt(id))
@@ -48,7 +45,7 @@ const DeleteGame = () => {
             break;
         }
     }
-    const editGame = () => {
+    const deleteGame = () => {
         const editedGame = {
             id: parseInt(id),
             title: title,
@@ -58,7 +55,7 @@ const DeleteGame = () => {
             image: image
         };
         GameService.putGame(editedGame);
-    }
+
     return (
         <>
         <section>
@@ -70,7 +67,7 @@ const DeleteGame = () => {
 
                 <h3 onChange={changeHandler}>{title}</h3>
 
-                <Button variant="warning" onClick={getGameFromService} className="me-2 mb-2">
+                <Button variant="warning" onClick={getGameFromService} className="me-2">
                         Get game
                 </Button>
 
