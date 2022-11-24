@@ -11,6 +11,7 @@ import Characters from "../Characters/Characters";
 import Worlds from "../Worlds/Worlds";
 import Equipment from "../Equipment/Equipment";
 import AddNew from "../AddNew/AddNew";
+import Minigame from '../Minigame/Minigame';
 
 import { GiCharacter, GiAxeSword } from 'react-icons/gi';
 import { CgGames } from 'react-icons/cg';
@@ -53,6 +54,7 @@ const TopNavbar = () => {
                 <Route path="/worlds" element={<Worlds />}></Route>
                 <Route path="/equipment" element={<Equipment />}></Route>
                 <Route path="/add" element={<AddNew />}></Route>
+                <Route path="/minigame" element={<Minigame />}></Route>
             </Routes>
         </main>
         </BrowserRouter>
