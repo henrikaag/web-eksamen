@@ -2,7 +2,6 @@ import { useEffect, useState, createContext, ReactNode } from "react";
 import IGameContext from "../interfaces/IGameContext";
 import IGame from "../interfaces/IGame";
 import GameService from "../services/GameService";
-import { type } from "@testing-library/user-event/dist/type";
 
 export const GameContext = createContext<IGameContext | null>(null);
 
@@ -29,15 +28,12 @@ const GameProvider = ({children} : Props) => {
         setGame(newArray);
     }
 
-
-    /*
-    const addGame = (newGame: IGame) => {
-        setGame( [newGame, ...game]);
+    const addNewGame = async (newGame: IGame) => {
+        await GameService.postGame(newGame);
     }
-    */
 
     return(
-        <GameContext.Provider value={{games, deleteGameById }}>
+        <GameContext.Provider value={{games, deleteGameById, addNewGame }}>
             {children}
         </GameContext.Provider>
     )

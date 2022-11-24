@@ -1,19 +1,22 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import { GameContext } from '../../contexts/GameContext';
+import IGameContext from '../../interfaces/IGameContext';
 import GameService from '../../services/GameService';
 
 const AddGame = () => {
+    const { addNewGame } = useContext(GameContext) as IGameContext
 
     // const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
     const [releaseYear, setReleaseYear] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
-    const [image, setImage] = useState<string>("")
+
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.currentTarget
+        const {name, value} = e.currentTarget;
 
         switch( name ){
             case "title":
@@ -28,23 +31,19 @@ const AddGame = () => {
             case "price":
                 setPrice(parseInt(value));
             break;
-            case "image":
-                setImage( value );
-            break;
         }
     }
 
-    const addGame = () => {
+    const addAGame = () => {
 
         const newGame = {
             // id: id,
             title: title,
             platform: platform,
             releaseYear: releaseYear,
-            price: price,
-            image: image
+            price: price
         };
-        GameService.postGame(newGame);
+        addNewGame(newGame)
         console.log(newGame);
     }
 
@@ -78,7 +77,7 @@ const AddGame = () => {
                         <Form.Control type="text" />
             </Form.Group>
 
-            <Button variant="success" onClick={addGame}>
+            <Button variant="success" onClick={addAGame}>
                         Finish editing
                     </Button>
 

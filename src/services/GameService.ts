@@ -54,6 +54,14 @@ const GameService = (
             const result = await axios.get(`${ElectricGamesEndpoints.worlds}/${id}`);
             return result.data
         }
+
+        // GET BY STRING - Funksjoner
+
+        const getGameByTitle = async (title: string) => {
+            const result = await axios.get(`${ElectricGamesEndpoints.game}/${title}`)
+            return result.data
+        }
+
         // PUT - Funksjoner
         const putGame = async (editedGame: IGame) => {
             const result = await axios.put(ElectricGamesEndpoints.game, editedGame);
@@ -110,7 +118,8 @@ const GameService = (
             putEquipment,
             putWorld,
             postGame,
-            deleteGame
+            deleteGame,
+            getGameByTitle
         }
     }
 )();

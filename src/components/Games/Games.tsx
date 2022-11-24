@@ -5,12 +5,14 @@ import Form from 'react-bootstrap/Form';
 import GameList from './GameList';
 import EditGame from "./EditGame";
 import DeleteGame from "./DeleteGame";
+import searchGames from './SearchGames';
 
 import { FaPlaystation, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
 import { MdComputer } from 'react-icons/md';
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
+import SearchGames from './SearchGames';
 
 
 
@@ -38,11 +40,7 @@ const Games = () => {
             <p className="m-1">Here you can see different games. Use the buttons above to filter them by platform, or use the search field to find a specific game</p>
             <br></br>
 
-            <Form>
-            <Form.Group className="mb-5">
-                <Form.Control type="text" placeholder="Search for game title" />
-            </Form.Group>
-            </Form>
+            <SearchGames/>
 
             <hr></hr>
 
