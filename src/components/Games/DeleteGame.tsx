@@ -2,6 +2,9 @@ import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -93,6 +96,7 @@ const DeleteGame = () => {
             </section>
         </>
     )
+    }
 }
 
 export default DeleteGame;
