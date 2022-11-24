@@ -39,7 +39,6 @@ const AddGame = () => {
 
     const addGame = () => {
 
-        useEffect(()=>{
         const newGame = {
             id: id,
             title: title,
@@ -50,7 +49,6 @@ const AddGame = () => {
         };
         GameService.postGame(newGame);
         console.log(newGame);
-    },[])
     }
 
     return (
