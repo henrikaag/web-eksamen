@@ -5,12 +5,14 @@ const EditEquipment = () => {
     const [id, setId] = useState<string>("")
     const [nameOfEquipment, setName] = useState<string>("")
     const [description, setDesc] = useState<string>("")
+    const [usedByCharacter, setUsedByCharacter] = useState<string>("")
     const [image, setImage] = useState<string>("")
 
     const getEquipmentFromService = async () => {
         const equipment = await GameService.getEquipmentById(parseInt(id));
         setName(equipment.nameOfEquipment);
         setDesc(equipment.description);
+        setUsedByCharacter(equipment.usedByCharacter);
         setImage(equipment.image);
     }
 
@@ -27,9 +29,13 @@ const EditEquipment = () => {
             case "description":
                 setDesc( value );
             break;
+            case "usedByCharacter":
+                setImage( value );
+            break;
             case "image":
                 setImage( value );
             break;
+
         }
     }
 
@@ -37,10 +43,11 @@ const EditEquipment = () => {
         const editedEquipment = {
             id: parseInt(id),
             nameOfEquipment: nameOfEquipment,
+            usedByCharacter: usedByCharacter,
             description: description,
             image: image
         };
-        GameService.putEquipment
+        GameService.putEquipment( editedEquipment );
     }
 
     return (

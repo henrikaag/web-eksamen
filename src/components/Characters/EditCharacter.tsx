@@ -1,6 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import GameService from "../../services/GameService";
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const EditCharacter = () => {
     const [id, setId] = useState<string>("id not set")
     const [name, setName] = useState<string>("")
@@ -57,33 +60,44 @@ const EditCharacter = () => {
 
     return (
         <section>
-            <h2>Edit Character</h2>
-            <div>
-                <label>Id</label>
-                <input name="id" onChange={changeHandler} type="text" value={id}/>
-                <button onClick={getCharacterFromService}>Hent Character</button>
-            </div>
-            <div>
-                <label>name</label>
-                <input name="name" onChange={changeHandler} type="text" value={name}/>
-            </div>
-            <div>
-                <label>game</label>
-                <input name="game" onChange={changeHandler} type="text" value={game}/>
-            </div>
-            <div>
-                <label>Type</label>
-                <input name="type" onChange={changeHandler} type="text" value={type}/>
-            </div>
-            <div>
-                <label>equipment</label>
-                <input name="equipment" onChange={changeHandler} type="text" value={equipment}/>
-            </div>
-            <div>
-                <label>image</label>
-                <input name="image" onChange={changeHandler} type="text" value={image}/>
-            </div>
-            <button onClick={editCharacter}>Lagre endringer</button>
+                <Form>
+                    <Form.Group className="mb-2">
+                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
+                        <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                        <Button variant="warning" onClick={getCharacterFromService} className="mt-2">
+                            Get Character
+                    </Button>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control name="name" onChange={changeHandler} type="text" value={name} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Game</Form.Label>
+                        <Form.Control name="game" onChange={changeHandler} type="text" value={game}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Type</Form.Label>
+                        <Form.Control name="type" onChange={changeHandler} type="text" value={type}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Equipment</Form.Label>
+                        <Form.Control name="equipment" onChange={changeHandler} type="text" value={equipment}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+
+                    <Button variant="success" onClick={editCharacter}>
+                        Finish editing
+                    </Button>
+                    </Form>
         </section>
     )
 }

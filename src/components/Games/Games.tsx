@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
 import GameList from './GameList';
 import EditGame from "./EditGame";
 import DeleteGame from "./DeleteGame";
@@ -34,8 +35,16 @@ const Games = () => {
             <Button variant="primary m-1">Playstation <FaPlaystation /></Button>
             <Button variant="success m-1">Xbox <FaXbox /></Button>
             <Button variant="danger m-1">Nintendo Switch<SiNintendoswitch /></Button>
-            <p className="m-1">Filter games by platform</p>
+            <p className="m-1">Here you can see different games. Use the buttons above to filter them by platform, or use the search field to find a specific game</p>
             <br></br>
+
+            <Form>
+            <Form.Group className="mb-5">
+                <Form.Control type="text" placeholder="Search for game title" />
+            </Form.Group>
+            </Form>
+
+            <hr></hr>
 
             {/*EDIT BUTTON*/}
                 <Button variant="warning" onClick={handleShow} className="me-2">

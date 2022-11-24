@@ -1,36 +1,39 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Accordion from 'react-bootstrap/Accordion';
-
-import { FiTrash2 } from 'react-icons/fi';
-import { BsPencilSquare } from 'react-icons/bs';
+import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
+import Col from 'react-bootstrap/Col';
+import { GameContext } from "../../contexts/GameContext";
+import IGameContext from "../../interfaces/IGameContext";
 
 
 
 const DeleteGame = () => {
-    const [id, setId] = useState<string>("Id not set")
-    const [title, setTitle] = useState<string>("Title not set")
-    const [platform, setPlatform] = useState<string>("Platform not set")
-    const [releaseYear, setReleaseYear] = useState<string>("Release year not set")
-    const [price, setPrice] = useState<string>("Price not set")
-    const [image, setImage] = useState<string>("image not set")
+    const [id, setId] = useState<number>(0)
+    const { deleteGameById } = useContext(GameContext) as IGameContext;
+    const [title, setTitle] = useState<string>("")
+    const [platform, setPlatform] = useState<string>("")
+    const [releaseYear, setReleaseYear] = useState<string>("")
+    const [price, setPrice] = useState<string>("")
+    const [image, setImage] = useState<string>("")
 
     const getGameFromService = async () => {
-        const game = await GameService.getGameById(parseInt(id))
+        const game = await GameService.getGameById( id );
         setTitle(game.title);
         setPlatform(game.platform);
         setReleaseYear(game.releaseYear);
         setPrice(game.price);
         setImage(game.image);
     }
+
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.currentTarget
 
         switch( name ){
             case "id":
-                setId ( value );
+                setId ( parseInt(e.currentTarget.value) );
             break;
             case "title":
                 setTitle( value );
@@ -49,19 +52,19 @@ const DeleteGame = () => {
             break;
         }
     }
-    const editGame = () => {
-        const editedGame = {
-            id: parseInt(id),
-            title: title,
-            platform: platform,
-            releaseYear: parseInt(releaseYear),
-            price: parseInt(price),
-            image: image
-        };
-        GameService.putGame(editedGame);
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setId (parseInt(e.currentTarget.value))
     }
+
+    const deleteGame = () => {
+        deleteGameById( id );
+        
+    }
+
     return (
         <>
+        <section>
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
                     <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
@@ -74,10 +77,26 @@ const DeleteGame = () => {
                         Get game
                 </Button>
 
-                <Button variant="danger">
+                <Button variant="danger mb-2"  onClick={deleteGame}>
                         Delete game
                 </Button>
             </Form>
+            <i>A preview of the world you want to delete will show up below when you have entered an id and clicked "Get World"</i>
+            <Col>
+                    <Card className="shadow-sm">
+                        <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="game-card-image"/>
+                        <Card.Body>
+                        <Card.Title>{title}</Card.Title>
+                        <Card.Text>
+                            <p>Platform: {platform}</p>
+                            <p>Release Year: {releaseYear}</p>
+                            <p>{price}$</p>
+                            <Badge pill bg="primary">ID: {id}</Badge>
+                        </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </section>
         </>
     )
 }

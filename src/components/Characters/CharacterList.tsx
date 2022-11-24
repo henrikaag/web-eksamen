@@ -32,8 +32,7 @@ const CharacterList = () => {
     }
     return (
         <section>
-            <h2>Character</h2>
-            <Row xs={1} sm={2} md={3} className="g-2 mt-2">
+            <Row xs={1} sm={2} md={3} lg={4} className="g-2 mt-2">
                 {getCharacterList()}
             </Row>
         </section>
