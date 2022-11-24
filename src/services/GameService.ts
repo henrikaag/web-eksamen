@@ -89,7 +89,19 @@ const GameService = (
             {
             
             const result = await axios.post(ElectricGamesEndpoints.game, newGame);
-            console.log(result);
+            return result.data;
+            }
+            catch
+            {
+                return 500;
+            }
+        }
+
+        const postCharacter = async (newCharacter: ICharacter) => {
+            try
+            {
+            
+            const result = await axios.post(ElectricGamesEndpoints.character, newCharacter);
             return result.data;
             }
             catch
@@ -120,7 +132,11 @@ const GameService = (
 
         const deleteGame = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.game}/${id}`)
-            console.log(result);
+            return result;
+        }
+
+        const deleteCharacter = async (id: number) => {
+            const result = await axios.delete(`${ElectricGamesEndpoints.character}/${id}`)
             return result;
         }
 
@@ -140,7 +156,9 @@ const GameService = (
             postGame,
             deleteGame,
             getGameByTitle,
-            uploadImage
+            uploadImage,
+            deleteCharacter,
+            postCharacter
         }
     }
 )();

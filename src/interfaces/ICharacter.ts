@@ -4,7 +4,7 @@ interface ICharacter {
     game: string;
     type: string;
     equipment: string;
-    image: string;
+    image?: string;
 }
 
 export default ICharacter;

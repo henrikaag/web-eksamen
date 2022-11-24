@@ -82,7 +82,7 @@ const DeleteGame = () => {
                         Delete game
                 </Button>
             </Form>
-            <i>A preview of the world you want to delete will show up below when you have entered an id and clicked "Get World"</i>
+            <i>A preview of the game you want to delete will show up below when you have entered an id and clicked "Get game"</i>
             <Col>
                     <Card className="shadow-sm">
                         <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="game-card-image"/>

@@ -1,4 +1,5 @@
 import AddGame from "../Games/AddGame";
+import AddCharacter from "../Characters/addCharacter";
 
 
 const AddNew = () => {
@@ -9,8 +10,11 @@ const AddNew = () => {
             <h1>Add New</h1>
             <hr></hr>
             <section className="w-50">
-                <h2>Add New Game</h2>
+                <h3>Add A Game</h3>
                 <AddGame />
+                <br />
+                <h3>Add A Character</h3>
+                <AddCharacter />
             </section>
         </main>
         </>
