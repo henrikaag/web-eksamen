@@ -2,10 +2,11 @@ import { useEffect, useState, createContext, ReactNode } from "react";
 import IGameContext from "../interfaces/IGameContext";
 import IGame from "../interfaces/IGame";
 import GameService from "../services/GameService";
+import { type } from "@testing-library/user-event/dist/type";
 
 export const GameContext = createContext<IGameContext | null>(null);
 
-interface Props{
+type Props = {
     children: ReactNode
 }
 
