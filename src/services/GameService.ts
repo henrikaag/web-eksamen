@@ -1,4 +1,5 @@
 import axios from "axios";
+import { STATUS_CODES } from "http";
 import ICharacter from "../interfaces/ICharacter";
 import IEquipment from "../interfaces/IEquipment";
 import IGame from "../interfaces/IGame";
@@ -76,9 +77,17 @@ const GameService = (
         // POST - Funksjoner
 
         const postGame = async (newGame: IGame) => {
+            try
+            {
+            
             const result = await axios.post(ElectricGamesEndpoints.game, newGame);
             console.log(result);
             return result.data;
+            }
+            catch
+            {
+                return 500;
+            }
         }
 
         const deleteGame = async (id: number) => {
