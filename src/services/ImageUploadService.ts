@@ -2,14 +2,11 @@ import axios from "axios";
 
 
 const ImageUploadService = (
+    () => {
 
-    ()=>{
+        const imageUploadEndpoint = "https://localhost:7050/uploadimage";
 
-        const imageUploadEndpoint = "http://localhost:7050/UploadImage";
-
-    
         const uploadImage = async (image: File) => {
-            try{
             const formData = new FormData();
             formData.append("file", image);
 
@@ -17,17 +14,11 @@ const ImageUploadService = (
                 url: imageUploadEndpoint,
                 method: "POST",
                 data: formData,
-                headers: { "Content-Type": "multipart/form-data" }
+                headers: { "Content-Type" : "multipart/form-data" }
             });
 
-            formData.delete("file");            
+            formData.delete("file");
         }
-        catch
-        {
-            
-        }
-        } 
-
 
         return {
             uploadImage

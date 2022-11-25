@@ -4,9 +4,10 @@ import Form from 'react-bootstrap/Form';
 import { GameContext } from '../../contexts/GameContext';
 import IGameContext from '../../interfaces/IGameContext';
 import GameService from '../../services/GameService';
+import ImageUploadService from "../../services/ImageUploadService";
 
 const AddGame = () => {
-    
+
     // const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
@@ -14,7 +15,7 @@ const AddGame = () => {
     const [price, setPrice] = useState<number>(0)
     const [nameOfImage, setNameOfImage] = useState<string>("")
     const [image, setImage] = useState<File | null>(null)
-    
+
     const { addNewGame } = useContext(GameContext) as IGameContext
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,8 +48,8 @@ const AddGame = () => {
     }
 
     const uploadImage = () => {
-        if( image!= null){
-            GameService.uploadImage(image);
+        if( image!= null ){
+            ImageUploadService.uploadImage(image);
         }
     }
 
@@ -91,7 +92,7 @@ const AddGame = () => {
             </Form.Group>
 
 
-            <Form.Group controlId="formFile" className="mb-3">
+            <Form.Group className="mb-3">
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="file" name='image' onChange={imageHandler} />
                         <button type='button' onClick={uploadImage}>Upload Image</button>
