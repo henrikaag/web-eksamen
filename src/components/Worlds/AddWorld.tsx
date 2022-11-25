@@ -27,6 +27,7 @@ const AddWorld = () => {
         }
     }
 
+    // POST FOR IMAGE
     const imageHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {files} =e.target;
 
@@ -43,6 +44,7 @@ const AddWorld = () => {
         }
     }
 
+    // ADD
     const addWorld = () => {
         const newWorld = {
             name: name,

@@ -6,6 +6,8 @@ import Badge from 'react-bootstrap/Badge';
 import '../../css/Item.css';
 
 const CharacterItem = ({id, name, game, type, equipment, image } : ICharacter) => {
+    
+    // ITEMS ON PAGE
     return (
         <article>
                 <Col>

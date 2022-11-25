@@ -12,6 +12,7 @@ const EditCharacter = () => {
     const [equipment, setEquipment] = useState<string>("")
     const [image, setImage] = useState<string>("")
 
+    // GET
     const getCharacterFromService = async () => {
         const character = await GameService.getCharacterById(parseInt(id));
         setName(character.name);
@@ -46,6 +47,7 @@ const EditCharacter = () => {
         }
     }
 
+    // EDIT
     const editCharacter = () => {
         const editedCharacter = {
             id: parseInt(id),
@@ -55,7 +57,6 @@ const EditCharacter = () => {
             equipment: equipment,
             image: image
         };
-        console.log(editedCharacter);
         GameService.putCharacter( editedCharacter );
     }
 

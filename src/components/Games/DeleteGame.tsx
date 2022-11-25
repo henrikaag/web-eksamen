@@ -19,7 +19,8 @@ const DeleteGame = () => {
     const [image, setImage] = useState<string>("")
 
     const { deleteGameById } = useContext(GameContext) as IGameContext;
-
+    
+    // GET
     const getGameFromService = async () => {
         const game = await GameService.getGameById( id );
         setTitle(game.title);
@@ -58,6 +59,7 @@ const DeleteGame = () => {
         setId (parseInt(e.currentTarget.value))
     }
 
+    // DELETE
     const deleteGame = () => {
         deleteGameById( id );
 

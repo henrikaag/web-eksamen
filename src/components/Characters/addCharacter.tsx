@@ -34,6 +34,7 @@ const AddCharacter = () => {
         }
     }
 
+    // POST FOR IMAGE
     const imageHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {files} =e.target;
 
@@ -50,6 +51,7 @@ const AddCharacter = () => {
         }
     }
 
+    // ADD
     const addCharacter = () => {
 
         const newCharacter = {

@@ -64,27 +64,32 @@ const GameService = (
         }
 
         // PUT - Funksjoner
+        // Game
         const putGame = async (editedGame: IGame) => {
             const result = await axios.put(ElectricGamesEndpoints.game, editedGame);
             return result.data;
         }
+
+        // Character
         const putCharacter = async (editedCharacter: ICharacter) => {
             const result = await axios.put(ElectricGamesEndpoints.character, editedCharacter);
             return result.data;
         }
 
+        // Equipment
         const putEquipment = async (editedEquipment: IEquipment) => {
             const result = await axios.put(ElectricGamesEndpoints.equipment, editedEquipment);
             return result.data;
         }
 
+        // World
         const putWorld = async (editedWorld: IWorld) => {
             const result = await axios.put(ElectricGamesEndpoints.worlds, editedWorld);
             return result.data;
         }
 
         // POST - Funksjoner
-
+        // Game
         const postGame = async (newGame: IGame) => {
             try
             {
@@ -101,6 +106,7 @@ const GameService = (
             }
         }
 
+        // Character
         const postCharacter = async (newCharacter: ICharacter) => {
             try
             {
@@ -117,6 +123,8 @@ const GameService = (
                 return null;
             }
         }
+
+        // Equipment
         const postEquipment = async (newEquipment: IEquipment) => {
             try
             {
@@ -132,6 +140,8 @@ const GameService = (
                 return null;
             }
         }
+
+        // World
         const postWorld = async (newWorld: IWorld) => {
             try
             {
@@ -148,44 +158,57 @@ const GameService = (
             }
         }
 
+        // DELETE - Funksjoner
+        // Game
         const deleteGame = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.game}/${id}`)
             return result;
         }
 
+        // Character
         const deleteCharacter = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.character}/${id}`)
             return result;
         }
+
+        // Equipment
         const deleteEquipment = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.equipment}/${id}`)
             return result;
         }
+
+        // World
         const deleteWorld = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.worlds}/${id}`)
             return result;
         }
 
         return {
+            //GET ALL - Funksjoner
             getAllGames,
             getAllCharacters,
             getAllEquipment,
             getAllWorlds,
+            // GET BY ID - Funkjsoner
             getGameById,
             getCharacterById,
             getEquipmentById,
             getWorldById,
+            // GET BY STRING - Funksjoner
+            getGameByTitle,
+            // PUT - Funksjoner
             putGame,
             putCharacter,
             putEquipment,
             putWorld,
+            // POST - Funksjoner
             postGame,
-            deleteGame,
-            getGameByTitle,
-            deleteCharacter,
             postCharacter,
             postEquipment,
             postWorld,
+            // DELETE - Funksjoner
+            deleteGame,
+            deleteCharacter,
             deleteWorld,
             deleteEquipment
         }

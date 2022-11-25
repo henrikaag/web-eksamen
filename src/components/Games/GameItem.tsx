@@ -1,4 +1,3 @@
-import { FC, useState } from 'react';
 import IGame from "../../interfaces/IGame";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -6,8 +5,9 @@ import Badge from 'react-bootstrap/Badge';
 
 import '../../css/Item.css';
 
-const GameItem : FC<IGame>= ({id, title, platform, releaseYear, price, image }) => {
+const GameItem = ({id, title, platform, releaseYear, price, image } : IGame) => {
 
+    //ITEMS ON PAGE
     return (
         <article>
                 <Col>

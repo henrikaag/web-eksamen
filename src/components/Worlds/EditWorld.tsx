@@ -11,6 +11,7 @@ const EditWorld = () => {
     const [game, setGame] = useState<string>("");
     const [image, setImage] = useState<string>("");
 
+    // GET
     const getWorldFromService = async () => {
         const world = await GameService.getWorldById(parseInt(id));
         setName(world.name);
@@ -37,6 +38,7 @@ const EditWorld = () => {
         }
     }
 
+    // EDIT
     const editWorld = () => {
         const editedWorld = {
             id: parseInt(id),

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import GameService from "../../services/GameService";
 import ICharacter from "../../interfaces/ICharacter";
 import CharacterItem from "./CharacterItem";
@@ -12,10 +12,13 @@ const CharacterList = () => {
         getCharactersFromService();
     }, [])
 
+    // GET
     const getCharactersFromService = async () => {
         const CharactersFromService = await GameService.getAllCharacters();
         setCharacters(CharactersFromService);
     }
+
+    // LIST
     const getCharacterList = () => {
         return characters.map((character, i) => (
             <CharacterItem

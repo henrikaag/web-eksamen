@@ -17,17 +17,20 @@ const CharacterProvider = ({children} : Props) => {
         getCharactersFromService();
     }, [])
 
+    // GET
     const getCharactersFromService = async () => {
         const charactersFromService = await GameService.getAllCharacters();
         setCharacters (charactersFromService);
     }
 
+    //DELETE
     const deleteCharactersById = async (id: number) => {
         await GameService.deleteCharacter(id)
         const newArray = characters.filter ( character => character.id != id)
         setCharacters(newArray);
     }
 
+    //ADD 
     const addNewCharacter = async (newCharacter: ICharacter) => {
         await GameService.postCharacter(newCharacter)
     }

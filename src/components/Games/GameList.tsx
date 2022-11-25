@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import IGame from "../../interfaces/IGame";
-import IGameContext from "../../interfaces/IGameContext";
 import GameService from "../../services/GameService";
 import GameItem from "./GameItem";
 
@@ -13,10 +12,13 @@ const GameList = () => {
         getGamesFromService();
     }, [])
 
+    // GET
     const getGamesFromService = async () => {
         const GamesFromService = await GameService.getAllGames();
         setGames(GamesFromService);
     }
+
+    // LIST
     const getGameList = () => {
         return games.map((game, i) => (
             <GameItem
