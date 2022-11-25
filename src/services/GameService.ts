@@ -1,8 +1,10 @@
+import { ErrorResponse } from "@remix-run/router";
 import axios from "axios";
 import ICharacter from "../interfaces/ICharacter";
 import IEquipment from "../interfaces/IEquipment";
 import IGame from "../interfaces/IGame";
 import IWorld from "../interfaces/IWorld";
+import { AxiosError } from "axios";
 
 
 const GameService = (
@@ -87,13 +89,16 @@ const GameService = (
         const postGame = async (newGame: IGame) => {
             try
             {
-            
+
             const result = await axios.post(ElectricGamesEndpoints.game, newGame);
             return result.data;
             }
-            catch
-            {
-                return 500;
+            catch(error: AxiosError | any)
+            { 
+                if(axios.isAxiosError(error) && ErrorResponse){
+                    console.log(error.response)
+                }
+                
             }
         }
 
@@ -102,11 +107,15 @@ const GameService = (
             {
             
             const result = await axios.post(ElectricGamesEndpoints.character, newCharacter);
+            console.log(result)
             return result.data;
             }
-            catch
-            {
-                return 500;
+            catch(error: AxiosError | any)
+            { 
+                if(axios.isAxiosError(error) && ErrorResponse){
+                    console.log(error.response)
+                }
+                
             }
         }
 
@@ -122,8 +131,8 @@ const GameService = (
             });
 
             formData.delete("file");
-            return result.data;
             console.log(result)            
+            return result.data;
         }
 
         const deleteGame = async (id: number) => {

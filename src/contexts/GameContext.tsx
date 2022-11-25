@@ -2,12 +2,14 @@ import { useEffect, useState, createContext, ReactNode } from "react";
 import IGameContext from "../interfaces/IGameContext";
 import IGame from "../interfaces/IGame";
 import GameService from "../services/GameService";
-import ICharacterContext from "../interfaces/ICharacterContext";
 import ICharacter from "../interfaces/ICharacter";
+import IEquipment from "../interfaces/IEquipment";
 
 export const GameContext = createContext<IGameContext | null>(null);
 
-export const CharacterContext = createContext<ICharacterContext | null>(null);
+export const CharacterContext = createContext<IGameContext | null>(null);
+
+// export const EquipmentContext = createContext<IEquipmentContext | null>(null);
 
 
 type Props = {

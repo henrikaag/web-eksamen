@@ -10,6 +10,7 @@ const AddCharacter = () => {
     const [game, setGame] = useState<string>("")
     const [type, setType] = useState<string>("")
     const [equipment, setEquipment] = useState<string>("")
+    const [image, setImage] = useState<string>("")
 
     const { addNewCharacter } = useContext(GameContext) as IGameContext;
 
@@ -29,6 +30,9 @@ const AddCharacter = () => {
             case "equipment":
                 setEquipment ( value )
             break;
+            case "nameOfImage":
+                setImage( value )
+            break;
         }
     }
 
@@ -38,7 +42,8 @@ const AddCharacter = () => {
             name: name,
             game: game,
             type: type,
-            equipment: equipment
+            equipment: equipment,
+            image: image
         };
         addNewCharacter(newCharacter)
         console.log(newCharacter);
@@ -65,6 +70,11 @@ const AddCharacter = () => {
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Equipment</Form.Label>
                 <Form.Control onChange={changeHandler} type="text" name="equipment" value={equipment} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formGroupPassword">
+                <Form.Label>Name Of Iamge</Form.Label>
+                <Form.Control onChange={changeHandler} type="text" name="nameOfImage" value={image} />
             </Form.Group>
 
 
