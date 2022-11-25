@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { GameContext } from '../../contexts/GameContext';
 import IGameContext from '../../interfaces/IGameContext';
 import GameService from '../../services/GameService';
+import ImageUploadService from '../../services/ImageUploadService';
 
 const AddGame = () => {
     
@@ -48,7 +49,7 @@ const AddGame = () => {
 
     const uploadImage = () => {
         if( image != null){
-            GameService.uploadImage(image);
+            ImageUploadService.uploadImage(image);
         }
     }
 

@@ -20,7 +20,8 @@ const ImageUploadService = (
                 headers: { "Content-Type": "multipart/form-data" }
             });
 
-            formData.delete("file");            
+            formData.delete("file"); 
+            return result.data;           
         }
         catch
         {

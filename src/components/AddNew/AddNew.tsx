@@ -1,5 +1,7 @@
 import AddGame from "../Games/AddGame";
 import AddCharacter from "../Characters/addCharacter";
+import AddEquipment from "../Equipment/AddEquipment";
+import AddWorld from "../Worlds/AddWorld";
 
 
 const AddNew = () => {
@@ -15,6 +17,10 @@ const AddNew = () => {
                 <br />
                 <h3>Add A Character</h3>
                 <AddCharacter />
+                <h3>Add Equipment</h3>
+                <AddEquipment/>
+                <h3>Add World</h3>
+                <AddWorld/>
             </section>
         </main>
         </>

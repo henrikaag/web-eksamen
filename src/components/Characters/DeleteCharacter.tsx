@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 
 import Button from 'react-bootstrap/Button';
@@ -6,17 +6,22 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/Col';
+import ICharacterContext from "../../interfaces/ICharacterContext";
+import { CharacterContext } from "../../contexts/CharacterContext";
 
 const DeleteCharacter = () => {
-    const [id, setId] = useState<string>("id not set")
+    const [id, setId] = useState<number>(0)
     const [name, setName] = useState<string>("")
     const [game, setGame] = useState<string>("")
     const [type, setType] = useState<string>("")
     const [equipment, setEquipment] = useState<string>("")
     const [image, setImage] = useState<string>("")
 
+    const { deleteCharactersById } = useContext(CharacterContext) as ICharacterContext
+    
+
     const getCharacterFromService = async () => {
-        const character = await GameService.getCharacterById(parseInt(id));
+        const character = await GameService.getCharacterById(id);
         setName(character.name);
         setGame(character.game);
         setType(character.type);
@@ -29,7 +34,7 @@ const DeleteCharacter = () => {
 
         switch ( name ){
             case "id":
-                setId( value );
+                setId( parseInt(e.currentTarget.value ) );
             break;
             case "name":
                 setName ( value );
@@ -49,16 +54,13 @@ const DeleteCharacter = () => {
         }
     }
 
-    const editCharacter = () => {
-        const editedCharacter = {
-            id: parseInt(id),
-            name: name,
-            game: game,
-            type: type,
-            equipment: equipment,
-            image: image
-        };
-        GameService.putCharacter( editedCharacter );
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setId (parseInt(e.currentTarget.value))
+    }
+
+    const deleteCharacter = () => {
+        deleteCharactersById( id );
+        
     }
 
     return (
@@ -67,14 +69,14 @@ const DeleteCharacter = () => {
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
                     <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
-                    <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                    <Form.Control name="id" onChange={handleChange} type="number" value={id} />
                 </Form.Group>
 
                 <Button variant="warning" onClick={getCharacterFromService} className="me-2">
                         Get Character
                 </Button>
 
-                <Button variant="danger">
+                <Button variant="danger" onClick={deleteCharacter}>
                         Delete Character
                 </Button>
             </Form>

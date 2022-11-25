@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import ICharacter from "../interfaces/ICharacter";
 import IEquipment from "../interfaces/IEquipment";
 import IGame from "../interfaces/IGame";
@@ -91,9 +91,12 @@ const GameService = (
             const result = await axios.post(ElectricGamesEndpoints.game, newGame);
             return result.data;
             }
-            catch
+            catch(error: AxiosError | any)
             {
-                return 500;
+                if( axios.isAxiosError(error) && error.response){
+                    console.log(error.response)
+                }
+                return null;
             }
         }
 
@@ -104,9 +107,42 @@ const GameService = (
             const result = await axios.post(ElectricGamesEndpoints.character, newCharacter);
             return result.data;
             }
-            catch
+            catch(error: AxiosError | any)
             {
-                return 500;
+                if( axios.isAxiosError(error) && error.response){
+                    console.log(error.response)
+                }
+                return null;
+            }
+        }
+        const postEquipment = async (newEquipment: IEquipment) => {
+            try
+            {
+            
+            const result = await axios.post(ElectricGamesEndpoints.equipment, newEquipment);
+            return result.data;
+            }
+            catch(error: AxiosError | any)
+            {
+                if( axios.isAxiosError(error) && error.response){
+                    console.log(error.response)
+                }
+                return null;
+            }
+        }
+        const postWorld = async (newWorld: IWorld) => {
+            try
+            {
+            
+                const result = await axios.post(ElectricGamesEndpoints.worlds, newWorld);
+                return result.data;
+            }
+            catch(error: AxiosError | any)
+            {
+                if( axios.isAxiosError(error) && error.response){
+                    console.log(error.response)
+                }
+                return null;
             }
         }
 
@@ -124,9 +160,12 @@ const GameService = (
 
             formData.delete("file");            
         }
-        catch
+        catch(error: AxiosError | any)
         {
-            return 500;
+            if( axios.isAxiosError(error) && error.response){
+                console.log(error.response)
+            }
+            return null;
         }
         }
 
@@ -137,6 +176,14 @@ const GameService = (
 
         const deleteCharacter = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.character}/${id}`)
+            return result;
+        }
+        const deleteEquipment = async (id: number) => {
+            const result = await axios.delete(`${ElectricGamesEndpoints.equipment}/${id}`)
+            return result;
+        }
+        const deleteWorld = async (id: number) => {
+            const result = await axios.delete(`${ElectricGamesEndpoints.worlds}/${id}`)
             return result;
         }
 
@@ -158,7 +205,11 @@ const GameService = (
             getGameByTitle,
             uploadImage,
             deleteCharacter,
-            postCharacter
+            postCharacter,
+            postEquipment,
+            postWorld,
+            deleteWorld,
+            deleteEquipment
         }
     }
 )();

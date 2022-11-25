@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 
 import Button from 'react-bootstrap/Button';
@@ -6,49 +6,54 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/Col';
+import { WorldContext } from "../../contexts/WorldContext";
+import IWorldContext from "../../interfaces/IWorldContext";
 
 const DeleteWorld = () => {
 
-const [id, setId] = useState<string>("");
-const [name, setName] = useState<string>("");
-const [game, setGame] = useState<string>("");
-const [image, setImage] = useState<string>("");
+    const [id, setId] = useState<number>(0);
+    const [name, setName] = useState<string>("");
+    const [game, setGame] = useState<string>("");
+    const [image, setImage] = useState<string>("");
 
-const getWorldFromService = async () => {
-    const world = await GameService.getWorldById(parseInt(id));
-    setName(world.name);
-    setGame(world.game);
-    setImage(world.image);
-}
+    const {deleteWorldById} = useContext(WorldContext) as IWorldContext
 
-const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const {name, value } = e.currentTarget;
-
-    switch( name ){
-        case "id":
-            setId( value );
-        break;
-        case "name":
-            setName( value );
-        break;
-        case "game":
-            setGame( value );
-        break;
-        case "image":
-            setImage( value );
-        break;
+    const getWorldFromService = async () => {
+        const world = await GameService.getWorldById( id );
+        setName(world.name);
+        setGame(world.game);
+        setImage(world.image);
     }
-}
 
-const editWorld = () => {
-    const editedWorld = {
-        id: parseInt(id),
-        name: name,
-        game: game,
-        image: image
-    };
-    GameService.putWorld ( editedWorld )
-}
+    const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const {name, value } = e.currentTarget;
+
+        switch( name ){
+            case "id":
+                setId( parseInt(e.currentTarget.value) );
+            break;
+            case "name":
+                setName( value );
+            break;
+            case "game":
+                setGame( value );
+            break;
+            case "image":
+                setImage( value );
+            break;
+        }
+    }
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setId (parseInt(e.currentTarget.value))
+    }
+
+    const deleteWorld = () => {
+        deleteWorldById( id );
+        
+    }
+
+
 
 
     return (
@@ -56,15 +61,15 @@ const editWorld = () => {
         <section>
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
-                    <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
-                    <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                    <Form.Label>Set id (Wich world do you want to delete?)</Form.Label>
+                    <Form.Control name="id" onChange={handleChange} type="number" value={id} />
                 </Form.Group>
 
                 <Button variant="warning" onClick={getWorldFromService} className="me-2 mb-2">
                         Get World
                 </Button>
 
-                <Button variant="danger mb-2">
+                <Button variant="danger mb-2" onClick={deleteWorld}>
                         Delete World
                 </Button>
             </Form>
