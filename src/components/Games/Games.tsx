@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 import GameList from './GameList';
 import EditGame from "./EditGame";
 import DeleteGame from "./DeleteGame";
-import searchGames from './SearchGames';
 
 import { FaPlaystation, FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
