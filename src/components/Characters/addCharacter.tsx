@@ -1,18 +1,19 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import { GameContext } from "../../contexts/GameContext";
-import IGameContext from "../../interfaces/IGameContext";
-import GameService from "../../services/GameService";
+import { CharacterContext } from "../../contexts/CharacterContext";
+import ICharacterContext from "../../interfaces/ICharacterContext";
+import ImageUploadService from "../../services/ImageUploadService";
 
 const AddCharacter = () => {
     const [name, setName] = useState<string>("")
     const [game, setGame] = useState<string>("")
     const [type, setType] = useState<string>("")
     const [equipment, setEquipment] = useState<string>("")
-    const [image, setImage] = useState<string>("")
+    const [nameOfImage, setNameOfImage] = useState<string>("")
+    const [image, setImage] = useState<File | null>(null)
 
-    const { addNewCharacter } = useContext(GameContext) as IGameContext;
+    const { addNewCharacter } = useContext(CharacterContext) as ICharacterContext;
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.currentTarget;
@@ -30,9 +31,22 @@ const AddCharacter = () => {
             case "equipment":
                 setEquipment ( value )
             break;
-            case "image":
-                setImage( value )
-            break;
+        }
+    }
+
+    const imageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const {files} =e.target;
+
+        if(files !=null) {
+            const file= files[0]
+            setImage(file)
+            setNameOfImage(file.name)
+        }
+    }
+
+    const uploadImage = () => {
+        if( image!= null ){
+            ImageUploadService.uploadImage(image);
         }
     }
 
@@ -43,7 +57,7 @@ const AddCharacter = () => {
             game: game,
             type: type,
             equipment: equipment,
-            image: image
+            image: nameOfImage
         };
         addNewCharacter(newCharacter)
         console.log(newCharacter);
@@ -73,8 +87,9 @@ const AddCharacter = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Label>Equipment</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" name="image" value={image} />
+                <Form.Label>Image</Form.Label>
+                <Form.Control onChange={imageHandler} type="file" name="image"/>
+                <button type='button' onClick={uploadImage}>Upload Image</button>
             </Form.Group>
 
 

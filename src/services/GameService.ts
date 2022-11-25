@@ -148,28 +148,6 @@ const GameService = (
             }
         }
 
-        const uploadImage = async (image: File) => {
-            const formData = new FormData();
-            formData.append("file", image);
-
-            const result = await axios({
-                url: ElectricGamesEndpoints.imageUpload,
-                method: "POST",
-                data: formData,
-                headers: { "Content-Type": "multipart/form-data" }
-            });
-
-            formData.delete("file");
-        }
-        catch(error: AxiosError | any)
-        {
-            if( axios.isAxiosError(error) && error.response){
-                console.log(error.response)
-            }
-            return null;
-        }
-        }
-
         const deleteGame = async (id: number) => {
             const result = await axios.delete(`${ElectricGamesEndpoints.game}/${id}`)
             return result;
@@ -204,7 +182,6 @@ const GameService = (
             postGame,
             deleteGame,
             getGameByTitle,
-            uploadImage,
             deleteCharacter,
             postCharacter,
             postEquipment,
