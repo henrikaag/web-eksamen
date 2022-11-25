@@ -2,12 +2,11 @@ import Button from "react-bootstrap/esm/Button";
 import NavLink from "react-bootstrap/esm/NavLink";
 
 const HomePage = () => {
-    
+
     return (
         <>
-        <section className="container">
+        <section className="container mt-5">
             <h1>Welcome to the ElectricGamesApi!</h1>
-            
             <p>About the Api: This Web Api includes a database with information about available games and characters. 
                 The database also provides information about the playable worlds in the different games, and equipment used by different characters. 
             </p>
@@ -26,8 +25,8 @@ const HomePage = () => {
         <section className='container'>
             <NavLink href="/minigame">
                 <Button className='btn btn-success'>Play minigame</Button>
-            </NavLink>  
-        </section>  
+            </NavLink>
+        </section>
         </>
     );
 }

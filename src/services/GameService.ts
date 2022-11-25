@@ -70,7 +70,7 @@ const GameService = (
         }
         const putCharacter = async (editedCharacter: ICharacter) => {
             const result = await axios.put(ElectricGamesEndpoints.character, editedCharacter);
-            return result.data
+            return result.data;
         }
 
         const putEquipment = async (editedEquipment: IEquipment) => {

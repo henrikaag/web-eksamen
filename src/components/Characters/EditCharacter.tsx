@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const EditCharacter = () => {
-    const [id, setId] = useState<string>("id not set")
+    const [id, setId] = useState<string>("")
     const [name, setName] = useState<string>("")
     const [game, setGame] = useState<string>("")
     const [type, setType] = useState<string>("")
@@ -55,6 +55,7 @@ const EditCharacter = () => {
             equipment: equipment,
             image: image
         };
+        console.log(editedCharacter);
         GameService.putCharacter( editedCharacter );
     }
 
@@ -62,7 +63,7 @@ const EditCharacter = () => {
         <section>
                 <Form>
                     <Form.Group className="mb-2">
-                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
+                        <Form.Label>Set id (Wich character do you want to edit?)</Form.Label>
                         <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
                         <Button variant="warning" onClick={getCharacterFromService} className="mt-2">
                             Get Character
@@ -88,12 +89,6 @@ const EditCharacter = () => {
                         <Form.Label>Equipment</Form.Label>
                         <Form.Control name="equipment" onChange={changeHandler} type="text" value={equipment}/>
                     </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" />
-                    </Form.Group>
-
                     <Button variant="success" onClick={editCharacter}>
                         Finish editing
                     </Button>

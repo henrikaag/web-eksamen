@@ -17,9 +17,9 @@ const DeleteGame = () => {
     const [releaseYear, setReleaseYear] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
     const [image, setImage] = useState<string>("")
-    
+
     const { deleteGameById } = useContext(GameContext) as IGameContext;
-    
+
     const getGameFromService = async () => {
         const game = await GameService.getGameById( id );
         setTitle(game.title);
@@ -60,7 +60,7 @@ const DeleteGame = () => {
 
     const deleteGame = () => {
         deleteGameById( id );
-        
+
     }
 
     return (
@@ -74,7 +74,7 @@ const DeleteGame = () => {
 
                 <h3 onChange={changeHandler}>{title}</h3>
 
-                <Button variant="warning" onClick={getGameFromService} className="me-2">
+                <Button variant="warning  mb-2" onClick={getGameFromService} className="me-2">
                         Get game
                 </Button>
 

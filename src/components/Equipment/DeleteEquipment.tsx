@@ -75,7 +75,7 @@ const DeleteEquipment = () => {
                         Delete Equipment
                 </Button>
             </Form>
-            <i>A preview of the world you want to delete will show up below when you have entered an id and clicked "Get World"</i>
+            <i>A preview of the equipment you want to delete will show up below when you have entered an id and clicked "Get equipment"</i>
             <Col>
                 <Card onChange={changeHandler} className="mt-3">
                         <Card.Img variant="top" src={`https://localhost:7050/images/${image}`} style={{ width: "100%", height: "300px" }} className="card-image"/>

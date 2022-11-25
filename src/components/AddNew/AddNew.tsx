@@ -14,11 +14,16 @@ const AddNew = () => {
             <section className="w-50">
                 <h3>Add A Game</h3>
                 <AddGame />
+                <hr></hr>
                 <br />
                 <h3>Add A Character</h3>
                 <AddCharacter />
+                <hr></hr>
+                <br />
                 <h3>Add Equipment</h3>
                 <AddEquipment/>
+                <hr></hr>
+                <br />
                 <h3>Add World</h3>
                 <AddWorld/>
             </section>
