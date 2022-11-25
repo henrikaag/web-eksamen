@@ -30,7 +30,7 @@ const AddCharacter = () => {
             case "equipment":
                 setEquipment ( value )
             break;
-            case "nameOfImage":
+            case "image":
                 setImage( value )
             break;
         }
@@ -74,7 +74,7 @@ const AddCharacter = () => {
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Name Of Iamge</Form.Label>
-                <Form.Control onChange={changeHandler} type="text" name="nameOfImage" value={image} />
+                <Form.Control onChange={changeHandler} type="text" name="image" value={image} />
             </Form.Group>
 
 
