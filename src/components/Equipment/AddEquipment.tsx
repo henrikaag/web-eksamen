@@ -24,7 +24,7 @@ const AddEquipment = () => {
             break;
             case "description":
                 setDesc( value )
-            break; 
+            break;
             case "usedByCharacter":
                 setUsedByCharacter ( value )
             break;
@@ -79,11 +79,15 @@ const AddEquipment = () => {
             <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="file" name='image' onChange={imageHandler} />
-                        <button type='button' onClick={uploadImage}>Upload Image</button>
+                        <Button className="mt-2" variant="warning" onClick={uploadImage}>
+                        Upload Image
+                        </Button>
+                        <br></br>
+                        <i>*Upload the image before submitting</i>
             </Form.Group>
 
             <Button variant="success" onClick={addEquipment}>
-                        Finish editing
+                        Add Equipment!
                     </Button>
 
         </Form>

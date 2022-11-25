@@ -68,12 +68,6 @@ const EditWorld = () => {
                         <Form.Label>Price</Form.Label>
                         <Form.Control name="price" onChange={changeHandler} type="text" value={game}/>
                     </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" />
-                    </Form.Group>
-
                     <Button variant="success" onClick={editWorld}>
                         Finish editing
                     </Button>

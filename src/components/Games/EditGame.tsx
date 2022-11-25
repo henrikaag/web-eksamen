@@ -87,11 +87,6 @@ const EditGame = () => {
                         <Form.Control name="platform" onChange={changeHandler} type="text" value={platform}/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" />
-                    </Form.Group>
-
                     <Button variant="success" onClick={editGame}>
                         Finish editing
                     </Button>

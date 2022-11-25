@@ -88,12 +88,6 @@ const EditCharacter = () => {
                         <Form.Label>Equipment</Form.Label>
                         <Form.Control name="equipment" onChange={changeHandler} type="text" value={equipment}/>
                     </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" />
-                    </Form.Group>
-
                     <Button variant="success" onClick={editCharacter}>
                         Finish editing
                     </Button>

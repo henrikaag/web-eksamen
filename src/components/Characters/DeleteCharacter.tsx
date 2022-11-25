@@ -1,6 +1,7 @@
 import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
@@ -58,6 +59,10 @@ const DeleteCharacter = () => {
         setId (parseInt(e.currentTarget.value))
     }
 
+    function createMarkup() {
+        return {__html: 'delete alert'};
+      }
+
     const deleteCharacter = () => {
         deleteCharactersById( id );
 
@@ -79,6 +84,7 @@ const DeleteCharacter = () => {
                 <Button variant="danger" onClick={deleteCharacter}>
                         Delete Character
                 </Button>
+                <div dangerouslySetInnerHTML={createMarkup()} />
             </Form>
             <Col>
                 <Card onChange={changeHandler} className="mt-3">
