@@ -52,7 +52,7 @@ const EditWorld = () => {
         <section>
                 <Form>
                     <Form.Group className="mb-2">
-                        <Form.Label>Set id (Wich game do you want to edit?)</Form.Label>
+                        <Form.Label>Set id (Wich world do you want to edit?)</Form.Label>
                         <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
                         <Button variant="warning" onClick={getWorldFromService} className="mt-2">
                             Get World
@@ -60,13 +60,13 @@ const EditWorld = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-2">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control name="title" onChange={changeHandler} type="text" value={name} />
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control name="name" onChange={changeHandler} type="text" value={name} />
                     </Form.Group>
 
                     <Form.Group className="mb-2">
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control name="price" onChange={changeHandler} type="text" value={game}/>
+                        <Form.Label>Game</Form.Label>
+                        <Form.Control name="game" onChange={changeHandler} type="text" value={game}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3">

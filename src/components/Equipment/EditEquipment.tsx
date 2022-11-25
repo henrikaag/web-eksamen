@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import GameService from "../../services/GameService";
 
 const EditEquipment = () => {
@@ -51,27 +52,38 @@ const EditEquipment = () => {
     }
 
     return (
+        <>
         <section>
-            <h2>Edit equipment</h2>
-            <div>
-                <label>Id</label>
-                <input name="id" onChange={changeHandler} type="text" value={id}/>
-                <button onClick={getEquipmentFromService}>Hent Tegnefilm</button>
-            </div>
-            <div>
-                <label>Name</label>
-                <input name="name" onChange={changeHandler} type="text" value={nameOfEquipment}/>
-            </div>
-            <div>
-                <label>description</label>
-                <input name="description" onChange={changeHandler} type="text" value={description}/>
-            </div>
-            <div>
-                <label>Image</label>
-                <input name="image" onChange={changeHandler} type="text" value={image}/>
-            </div>
-            <button onClick={editEquipment}>Lagre endringer</button>
+                <Form>
+                    <Form.Group className="mb-2">
+                        <Form.Label>Set id (Wich equipment do you want to edit?)</Form.Label>
+                        <Form.Control name="id" onChange={changeHandler} type="text" value={id} />
+                        <Button variant="warning" onClick={getEquipmentFromService} className="mt-2">
+                            Get equipment
+                    </Button>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control name="nameOfEquipment" onChange={changeHandler} type="text" value={nameOfEquipment} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>What character uses this</Form.Label>
+                        <Form.Control name="usedByCharacter" onChange={changeHandler} type="text" value={usedByCharacter}/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Label>description</Form.Label>
+                        <Form.Control name="description" onChange={changeHandler} type="text" value={description}/>
+                    </Form.Group>
+
+                    <Button variant="success" onClick={editEquipment}>
+                        Finish editing
+                    </Button>
+                    </Form>
         </section>
+        </>
     )
 }
 
