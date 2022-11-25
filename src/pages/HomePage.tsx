@@ -6,9 +6,21 @@ const HomePage = () => {
     return (
         <>
         <section className="container">
-            <h1>Homepage</h1>
-            <p>Welcome to ElectricGamesApi!</p>
-            <p>About the Api: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi aut consequuntur impedit nemo accusamus, itaque adipisci rem amet totam ut! Dolor sit amet consectetur adipisicing elit. Libero, aliquid!</p>
+            <h1>Welcome to the ElectricGamesApi!</h1>
+            
+            <p>About the Api: This Web Api includes a database with information about available games and characters. 
+                The database also provides information about the playable worlds in the different games, and equipment used by different characters. 
+            </p>
+            <p>
+                This site makes it possible to interact with the database as you should be able to add and delete games, characters, worlds and equipment 
+                to/from the database. It will also be possible to edit the different elements if there is any wrong information put in. 
+            </p>
+            <p>
+                As a little fun extra element we added a simple minigame where your knowlegde about the different characters (already provided in the Api from the start)
+                comes in handy... 
+                <br/>
+                Hint: You should have a look around the Api and read about the characters before playing the minigame
+            </p>
             <hr/>
         </section>
         <section className='container'>
