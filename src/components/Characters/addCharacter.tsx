@@ -1,9 +1,8 @@
 import { ChangeEvent, useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import { CharacterContext } from "../../contexts/CharacterContext";
 import { GameContext } from "../../contexts/GameContext";
-import ICharacterContext from "../../interfaces/ICharacterContext";
+import IGameContext from "../../interfaces/IGameContext";
 import GameService from "../../services/GameService";
 
 const AddCharacter = () => {
@@ -12,7 +11,7 @@ const AddCharacter = () => {
     const [type, setType] = useState<string>("")
     const [equipment, setEquipment] = useState<string>("")
 
-    const { addNewCharacter } = useContext(CharacterContext) as ICharacterContext
+    const { addNewCharacter } = useContext(GameContext) as IGameContext;
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.currentTarget;

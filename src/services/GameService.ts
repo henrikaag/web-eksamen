@@ -111,7 +111,6 @@ const GameService = (
         }
 
         const uploadImage = async (image: File) => {
-            try{
             const formData = new FormData();
             formData.append("file", image);
 
@@ -122,12 +121,9 @@ const GameService = (
                 headers: { "Content-Type": "multipart/form-data" }
             });
 
-            formData.delete("file");            
-        }
-        catch
-        {
-            return 500;
-        }
+            formData.delete("file");
+            return result.data;
+            console.log(result)            
         }
 
         const deleteGame = async (id: number) => {

@@ -45,7 +45,7 @@ const GameProvider = ({children} : Props) => {
         setCharacters (charactersFromService);
     }
 
-    const deleteCharactersById = async (id: number) => {
+    const deleteCharacterById = async (id: number) => {
         await GameService.deleteCharacter(id)
         const newArray = characters.filter ( character => character.id != id)
         setCharacters(newArray);
@@ -56,7 +56,7 @@ const GameProvider = ({children} : Props) => {
     }
 
     return(
-        <GameContext.Provider value={{games, characters, deleteCharactersById, addNewCharacter, deleteGameById, addNewGame }}>
+        <GameContext.Provider value={{games, characters, deleteCharacterById, addNewCharacter, deleteGameById, addNewGame }}>
             {children}
         </GameContext.Provider>
     )

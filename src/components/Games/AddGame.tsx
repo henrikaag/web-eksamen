@@ -47,7 +47,7 @@ const AddGame = () => {
     }
 
     const uploadImage = () => {
-        if( image != null){
+        if( image!= null){
             GameService.uploadImage(image);
         }
     }
