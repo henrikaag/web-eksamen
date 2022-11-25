@@ -19,7 +19,7 @@ const DeleteCharacter = () => {
 
     const { deleteCharactersById } = useContext(CharacterContext) as ICharacterContext
 
-
+    // GET
     const getCharacterFromService = async () => {
         const character = await GameService.getCharacterById(id);
         setName(character.name);
@@ -58,6 +58,7 @@ const DeleteCharacter = () => {
         setId (parseInt(e.currentTarget.value))
     }
 
+    // DELETE
     const deleteCharacter = () => {
         deleteCharactersById( id );
 
@@ -68,7 +69,7 @@ const DeleteCharacter = () => {
         <section>
             <Form>
                 <Form.Group className="mb-2"controlId="formGridPassword">
-                    <Form.Label>Set id (Wich game do you want to delete?)</Form.Label>
+                    <Form.Label>Set id (Wich character do you want to delete?)</Form.Label>
                     <Form.Control name="id" onChange={handleChange} type="number" value={id} />
                 </Form.Group>
 

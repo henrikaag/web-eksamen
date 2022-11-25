@@ -3,12 +3,10 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { GameContext } from '../../contexts/GameContext';
 import IGameContext from '../../interfaces/IGameContext';
-import GameService from '../../services/GameService';
 import ImageUploadService from '../../services/ImageUploadService';
 
 const AddGame = () => {
 
-    // const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>("")
     const [platform, setPlatform] = useState<string>("")
     const [releaseYear, setReleaseYear] = useState<number>(0)
@@ -37,6 +35,7 @@ const AddGame = () => {
         }
     }
 
+    // POST FOR IMAGE
     const imageHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {files} =e.target;
 

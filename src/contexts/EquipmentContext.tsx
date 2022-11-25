@@ -1,6 +1,4 @@
 import { useEffect, useState, createContext, ReactNode } from "react";
-import IGameContext from "../interfaces/IGameContext";
-import IGame from "../interfaces/IGame";
 import GameService from "../services/GameService";
 import IEquipment from "../interfaces/IEquipment";
 import IEquipmentContext from "../interfaces/IEquipmentContext";
@@ -19,20 +17,24 @@ const EquipmentProvider = ({children} : Props) => {
         getEquipmentFromService();
     }, [])
 
+    // GET
     const getEquipmentFromService = async () => {
         const equipmentFromService = await GameService.getAllEquipment();
         setEquipment (equipmentFromService);
     }
 
+    // DELETE
     const deleteEquipmentById = async (id: number) => {
         await GameService.deleteEquipment(id);
         const newArray = equipment.filter ( equipment => equipment.id != id)
         setEquipment(newArray);
     }
 
+    // ADD
     const addNewEquipment = async (newEquipment: IEquipment) => {
         await GameService.postEquipment(newEquipment);
     }
+
     return(
         <EquipmentContext.Provider value={{equipment, deleteEquipmentById, addNewEquipment }}>
             {children}

@@ -10,7 +10,6 @@ import { SiNintendoswitch } from 'react-icons/si';
 import { MdComputer } from 'react-icons/md';
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
-import SearchGames from './SearchGames';
 
 
 
@@ -38,7 +37,6 @@ const Games = () => {
             <p className="m-1">Here you can see different games. Use the buttons above to filter them by platform, or use the search field to find a specific game</p>
             <br></br>
 
-            <SearchGames/>
 
             <hr></hr>
 

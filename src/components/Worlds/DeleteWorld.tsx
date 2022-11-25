@@ -18,6 +18,7 @@ const DeleteWorld = () => {
 
     const {deleteWorldById} = useContext(WorldContext) as IWorldContext
 
+    // GET
     const getWorldFromService = async () => {
         const world = await GameService.getWorldById( id );
         setName(world.name);
@@ -43,11 +44,12 @@ const DeleteWorld = () => {
             break;
         }
     }
-
+    // Finds the right ID
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setId (parseInt(e.currentTarget.value))
     }
 
+    // DELETE
     const deleteWorld = () => {
         deleteWorldById( id );
         

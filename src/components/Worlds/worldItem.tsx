@@ -1,4 +1,3 @@
-import ICharacter from "../../interfaces/ICharacter";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
@@ -6,6 +5,8 @@ import Badge from 'react-bootstrap/Badge';
 import IWorld from "../../interfaces/IWorld"
 
 const WorldItem = ({id, name, game, image} : IWorld) => {
+
+    //ITEMS ON PAGE
     return (
         <article>
             <Col>

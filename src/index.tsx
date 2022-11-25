@@ -15,13 +15,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GameProvider>
-    <CharacterProvider>
-    <EquipmentProvider>
-    <WorldProvider>
-    <App/>
-    </WorldProvider>
-    </EquipmentProvider>
-    </CharacterProvider>
+      <CharacterProvider>
+        <EquipmentProvider>
+          <WorldProvider>
+            <App/>
+          </WorldProvider>
+        </EquipmentProvider>
+      </CharacterProvider>
     </GameProvider>
   </React.StrictMode>
 );

@@ -12,6 +12,7 @@ const EditGame = () => {
     const [price, setPrice] = useState<string>("")
     const [image, setImage] = useState<string>("")
 
+    // GET
     const getGameFromService = async () => {
         const game = await GameService.getGameById(parseInt(id))
         setTitle(game.title);
@@ -44,6 +45,8 @@ const EditGame = () => {
             break;
         }
     }
+
+    // EDIT
     const editGame = () => {
         const editedGame = {
             id: parseInt(id),

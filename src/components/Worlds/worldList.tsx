@@ -12,11 +12,13 @@ const WorldList = () => {
         getWorldsFromService();
     },[])
 
+    // GET
     const getWorldsFromService = async () => {
         const WorldsFromService = await GameService.getAllWorlds();
         setWorld(WorldsFromService);
     }
 
+    // LIST
     const getWorldList = () => {
         return world.map((world, i) =>(
             <WorldItem
