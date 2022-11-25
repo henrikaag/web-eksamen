@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { Button, Form } from "react-bootstrap";
 import GameService from "../../services/GameService";
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const EditEquipment = () => {
     const [id, setId] = useState<string>("")

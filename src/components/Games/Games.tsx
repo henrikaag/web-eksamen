@@ -5,9 +5,6 @@ import GameList from './GameList';
 import EditGame from "./EditGame";
 import DeleteGame from "./DeleteGame";
 
-import { FaPlaystation, FaXbox } from 'react-icons/fa';
-import { SiNintendoswitch } from 'react-icons/si';
-import { MdComputer } from 'react-icons/md';
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
 
@@ -30,13 +27,8 @@ const Games = () => {
         <section className="container mt-4">
             <h1>Welcome to ElectricGames!</h1>
 
-            <Button variant="warning m-1">PC <MdComputer /></Button>
-            <Button variant="primary m-1">Playstation <FaPlaystation /></Button>
-            <Button variant="success m-1">Xbox <FaXbox /></Button>
-            <Button variant="danger m-1">Nintendo Switch<SiNintendoswitch /></Button>
-            <p className="m-1">Here you can see different games. Use the buttons above to filter them by platform, or use the search field to find a specific game</p>
+            <p className="m-1">Here you can see all the games from the ElectricGames database. Use the buttons below if you want to edit the current games in the database, or use the delete button if you want to remove a specific game.</p>
             <br></br>
-
 
             <hr></hr>
 

@@ -69,7 +69,7 @@ const AddCharacter = () => {
 
         <Form>
             <Form.Group className="mb-3" controlId="formGroupEmail">
-                <Form.Label>name</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control onChange={changeHandler} type="text" name="name" value={name}/>
             </Form.Group>
 
@@ -91,13 +91,17 @@ const AddCharacter = () => {
             <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Image</Form.Label>
                 <Form.Control onChange={imageHandler} type="file" name="image"/>
-                <button type='button' onClick={uploadImage}>Upload Image</button>
+                <Button className="mt-2" variant="warning" onClick={uploadImage}>
+                        Upload Image
+                </Button>
+                <br></br>
+                <i>*Upload the image before submitting</i>
             </Form.Group>
 
 
             <Button variant="success" onClick={addCharacter}>
-                        Finish editing
-                    </Button>
+                        Add Character!
+            </Button>
 
         </Form>
     )

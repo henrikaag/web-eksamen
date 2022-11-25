@@ -23,8 +23,8 @@ const Equipment = () => {
     return (
         <>
         <section className="container mt-4">
-            <h1>Characters in ElectricGames</h1>
-            <p className="m-1">Here you can see equipment used in different games by characters. Use the buttons above to filter them by platform, or use the search field to find a specific equipment</p>
+            <h1>Equipment used by characters in ElectricGames</h1>
+            <p className="m-1">Here you can see equipment for different characters. Use the buttons below if you want to edit the current equipment in the database, or use the delete button if you want to remove a specific equipment.</p>
 
             <hr></hr>
 

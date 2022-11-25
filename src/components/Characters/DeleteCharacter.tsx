@@ -1,6 +1,7 @@
 import { ChangeEvent, useContext, useState } from "react";
 import GameService from "../../services/GameService";
 
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';

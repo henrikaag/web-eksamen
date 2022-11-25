@@ -5,9 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 import EditWorld from "./EditWorld";
 import DeleteWorld from "./DeleteWorld";
 
-import { FaPlaystation, FaXbox } from 'react-icons/fa';
-import { SiNintendoswitch } from 'react-icons/si';
-import { MdComputer } from 'react-icons/md';
 import { FiTrash2 } from 'react-icons/fi';
 import { BsPencilSquare } from 'react-icons/bs';
 
@@ -29,11 +26,7 @@ const Worlds = () => {
         <section className="container mt-4">
             <h1>Worlds in ElectricGames</h1>
 
-            <Button variant="warning m-1">PC <MdComputer /></Button>
-            <Button variant="primary m-1">Playstation <FaPlaystation /></Button>
-            <Button variant="success m-1">Xbox <FaXbox /></Button>
-            <Button variant="danger m-1">Nintendo Switch<SiNintendoswitch /></Button>
-            <p className="m-1">Here you can see worlds from different games. Use the buttons above to filter them by platform, or use the search field to find a specific world</p>
+            <p className="m-1">Here you can see worlds from different games. Use the buttons below if you want to edit one of the current worlds added in the database, or use the delete button if you want to remove a specific world.</p>
 
             <hr></hr>
 
