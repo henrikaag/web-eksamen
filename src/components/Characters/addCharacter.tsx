@@ -73,7 +73,7 @@ const AddCharacter = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Label>Name Of Iamge</Form.Label>
+                <Form.Label>Equipment</Form.Label>
                 <Form.Control onChange={changeHandler} type="text" name="image" value={image} />
             </Form.Group>
 

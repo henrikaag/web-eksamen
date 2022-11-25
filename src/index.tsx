@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GameProvider from './contexts/GameContext';
+import CharacterProvider from './contexts/CharacterContext';
+import EquipmentProvider from './contexts/EquipmentContext';
+import WorldProvider from './contexts/WorldContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +15,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GameProvider>
+    <CharacterProvider>
+    <EquipmentProvider>
+    <WorldProvider>
     <App/>
+    </WorldProvider>
+    </EquipmentProvider>
+    </CharacterProvider>
     </GameProvider>
   </React.StrictMode>
 );

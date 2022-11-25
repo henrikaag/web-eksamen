@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Col from 'react-bootstrap/Col';
-import { GameContext } from "../../contexts/GameContext";
-import IGameContext from "../../interfaces/IGameContext";
+import ICharacterContext from "../../interfaces/ICharacterContext";
+import { CharacterContext } from "../../contexts/CharacterContext";
 
 const DeleteCharacter = () => {
     const [id, setId] = useState<number>(0)
@@ -17,7 +17,8 @@ const DeleteCharacter = () => {
     const [equipment, setEquipment] = useState<string>("")
     const [image, setImage] = useState<string>("")
 
-    const { deleteCharacterById } = useContext(GameContext) as IGameContext;
+    const { deleteCharactersById } = useContext(CharacterContext) as ICharacterContext
+
 
     const getCharacterFromService = async () => {
         const character = await GameService.getCharacterById(id);
@@ -33,7 +34,7 @@ const DeleteCharacter = () => {
 
         switch ( name ){
             case "id":
-                setId( parseInt(e.currentTarget.value) );
+                setId( parseInt(e.currentTarget.value ) );
             break;
             case "name":
                 setName ( value );
@@ -58,8 +59,8 @@ const DeleteCharacter = () => {
     }
 
     const deleteCharacter = () => {
-        deleteCharacterById( id );
-        
+        deleteCharactersById( id );
+
     }
 
     return (

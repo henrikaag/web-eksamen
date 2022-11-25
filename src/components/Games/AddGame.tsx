@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { GameContext } from '../../contexts/GameContext';
 import IGameContext from '../../interfaces/IGameContext';
 import GameService from '../../services/GameService';
-import ImageUploadService from "../../services/ImageUploadService";
+import ImageUploadService from '../../services/ImageUploadService';
 
 const AddGame = () => {
 

@@ -18,6 +18,7 @@ const ImageUploadService = (
             });
 
             formData.delete("file");
+            return result.data;
         }
 
         return {
