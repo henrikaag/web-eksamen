@@ -24,7 +24,7 @@ const Equipment = () => {
         <>
         <section className="container mt-4">
             <h1>Equipment used by characters in ElectricGames</h1>
-            <p className="m-1">Here you can see equipment for different characters. Use the buttons below if you want to edit the current equipment in the database, or use the delete button if you want to remove a specific equipment.</p>
+            <p className="m-1">Here you can see equipment for different characters. Use the buttons below if you want to edit the current equipment in the database, or use the delete button if you want to remove a specific equipment. Reload the site to see your changes.</p>
 
             <hr></hr>
 

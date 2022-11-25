@@ -27,7 +27,7 @@ const Games = () => {
         <section className="container mt-4">
             <h1>Welcome to ElectricGames!</h1>
 
-            <p className="m-1">Here you can see all the games from the ElectricGames database. Use the buttons below if you want to edit the current games in the database, or use the delete button if you want to remove a specific game.</p>
+            <p className="m-1">Here you can see all the games from the ElectricGames database. Use the buttons below if you want to edit the current games in the database, or use the delete button if you want to remove a specific game. Reload the site to see your changes.</p>
             <br></br>
 
             <hr></hr>

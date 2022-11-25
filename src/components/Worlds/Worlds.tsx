@@ -26,7 +26,7 @@ const Worlds = () => {
         <section className="container mt-4">
             <h1>Worlds in ElectricGames</h1>
 
-            <p className="m-1">Here you can see worlds from different games. Use the buttons below if you want to edit one of the current worlds added in the database, or use the delete button if you want to remove a specific world.</p>
+            <p className="m-1">Here you can see worlds from different games. Use the buttons below if you want to edit one of the current worlds added in the database, or use the delete button if you want to remove a specific world. Reload the site to see your changes.</p>
 
             <hr></hr>
 
